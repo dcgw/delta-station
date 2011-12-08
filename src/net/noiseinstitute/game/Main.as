@@ -10,6 +10,9 @@ package net.noiseinstitute.game {
 
         public function Main() {
             super(WIDTH, HEIGHT, LOGIC_FPS, true);
+
+            FP.screen.color = 0x000000;
+
             FP.world = new GameWorld();
         }
     }
