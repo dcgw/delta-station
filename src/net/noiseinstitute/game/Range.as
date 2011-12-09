@@ -12,5 +12,9 @@ package net.noiseinstitute.game {
                 return n;
             }
         }
+
+        public static function wrapAngle(n:Number):Number {
+            return wrap(n, -180, 180);
+        }
     }
 }
