@@ -1,6 +1,6 @@
 package net.noiseinstitute.game {
     import flash.geom.Point;
-
+    
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Image;
     import net.flashpunk.utils.Input;
@@ -19,9 +19,9 @@ package net.noiseinstitute.game {
 
         private var image:Image;
 
-        public function Player () {
-            x = Main.WIDTH/2;
-            y = Main.HEIGHT/2;
+        public function Player (x:Number, y:Number) {
+            this.x = x;
+            this.y = y;
 
             image = new Image(PlayerImage);
             image.smooth = true;
