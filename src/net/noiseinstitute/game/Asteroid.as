@@ -35,7 +35,7 @@ package net.noiseinstitute.game
 			// The speed at which the asteroid moves
 			var speed:Number = MAX_SPEED * Math.random();
 			
-			// The amount that the asteroids current position should change by when it is updated.
+			// The amount that the asteroid's current position should change by when it is updated.
 			VectorMath.becomePolar(positionDelta, direction, speed);
 			
 			// The speed at which the asteroid spins around

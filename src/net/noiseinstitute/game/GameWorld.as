@@ -13,10 +13,10 @@ package net.noiseinstitute.game {
 				var x:Number = Math.random() * Main.WIDTH;
 				var y:Number = Math.random() * Main.HEIGHT;
 				
-				var asteroid:Asteroid = new Asteroid(x, y);
-				add(asteroid);
+				add(new Asteroid(x, y));
 			}
-			
+
+			add(new Kitten(Math.random() * Main.WIDTH, Math.random() * Main.HEIGHT));
         }
     }
 }
