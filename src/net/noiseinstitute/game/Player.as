@@ -24,6 +24,8 @@ package net.noiseinstitute.game {
             y = Main.HEIGHT/2;
 
             image = new Image(PlayerImage);
+            image.smooth = true;
+
             graphic = image;
 
             image.centerOrigin();
