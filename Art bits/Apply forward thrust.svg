@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="640px"
+   height="480px"
+   id="svg2383"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="Apply forward thrust.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs2385">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 240 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="640 : 240 : 1"
+       inkscape:persp3d-origin="320 : 160 : 1"
+       id="perspective2391" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.10625"
+     inkscape:cx="287.00565"
+     inkscape:cy="240"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="738"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8" />
+  <metadata
+     id="metadata2388">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:2.0999999;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2399"
+       width="640"
+       height="480"
+       x="0"
+       y="0" />
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3;stroke-linejoin:miter;stroke-miterlimit:2.0999999;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3273"
+       width="58"
+       height="58"
+       x="246.10938"
+       y="168.65625"
+       rx="12"
+       ry="12" />
+    <text
+       xml:space="preserve"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Electrolize;-inkscape-font-specification:Electrolize"
+       x="320.09888"
+       y="209.75977"
+       id="text2393"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         x="320.09888"
+         y="209.75977"
+         id="tspan3245"><tspan
+           dx="0 0 0 0 0 18.079096"
+           id="tspan3315">Use <tspan
+   style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;font-family:Arial;-inkscape-font-specification:Arial"
+   id="tspan3321"
+   dx="18.079096">↑</tspan> to apply</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="320.09888"
+         y="264.38342"
+         id="tspan3319">forward thrust</tspan></text>
+    <path
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Electrolize;-inkscape-font-specification:Electrolize"
+       d="M 274.5 178.375 C 273.92186 179.71878 273.02343 181.14065 271.84375 182.65625 C 270.66405 184.1719 268.95312 185.9844 266.6875 188.0625 L 266.6875 189.84375 C 268.53124 188.9219 269.8203 188.21877 270.5625 187.75 C 271.30468 187.28127 272.43749 186.46877 273.9375 185.28125 L 273.9375 219.8125 L 276.28125 219.8125 L 276.28125 185.28125 C 277.96874 186.89065 280.39061 188.40627 283.53125 189.875 L 283.53125 188.09375 C 281.28123 186.07815 279.57029 184.32815 278.40625 182.875 C 277.24217 181.4219 276.29686 179.9219 275.5625 178.375 L 274.5 178.375 z "
+       id="text3323" />
+  </g>
+</svg>
