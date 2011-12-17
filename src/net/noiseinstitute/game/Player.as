@@ -23,6 +23,12 @@ package net.noiseinstitute.game {
             this.x = x;
             this.y = y;
 
+            angularVelocity = Math.random() - 0.5;
+
+            VectorMath.becomePolar(velocity, Math.random() * 360, Math.random());
+
+            angle = Math.random() * 360;
+
             image = new Image(PlayerImage);
             image.smooth = true;
 
