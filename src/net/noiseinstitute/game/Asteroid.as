@@ -10,8 +10,10 @@ package net.noiseinstitute.game
 		[Embed(source="Asteroid.png")]
 		private static var AsteroidImage:Class;
 		
-		public function Asteroid() {
+		public function Asteroid(x:Number, y:Number) {
 			graphic = new Image(AsteroidImage);
+			this.x = x;
+			this.y = y;
 		}
 	}
 }
