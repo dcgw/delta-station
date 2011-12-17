@@ -13,6 +13,8 @@ package net.noiseinstitute.game {
 
             FP.screen.color = 0x000000;
 
+            FP.console.enable();
+
             FP.world = new GameWorld();
         }
     }
