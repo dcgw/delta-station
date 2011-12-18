@@ -1,8 +1,6 @@
 package net.noiseinstitute.game.intro {
     import flash.media.Sound;
-
     import flash.media.SoundChannel;
-    import flash.sampler.stopSampling;
 
     import net.flashpunk.World;
 
