@@ -1,6 +1,8 @@
 package net.noiseinstitute.game {
     import flash.geom.Point;
-    
+
+    import flash.media.SoundTransform;
+
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Image;
     import net.flashpunk.utils.Input;
@@ -16,11 +18,14 @@ package net.noiseinstitute.game {
 		
 		[Embed(source="thrust.mp3")]
 		private static const THRUST_SOUND:Class;
+
 		[Embed(source="Asplode.mp3")]
 		private static const ASPLODE_SOUND:Class;
 		
-		private var thrust:Sound = Sound(new THRUST_SOUND());
+		private var thrustSound:Sound = Sound(new THRUST_SOUND());
 		private var thrustSoundChannel:SoundChannel;
+        private var thrustSoundTransform:SoundTransform = new SoundTransform(0.6);
+
 		private var asplodeSound:Sound = Sound(new ASPLODE_SOUND());
 		private var asplodeSoundChannel:SoundChannel;
 
@@ -88,7 +93,7 @@ package net.noiseinstitute.game {
 	                VectorMath.addTo(velocity, Static.point);
 					FuelCounter.fuel -= 0.5;
 					if (thrustSoundChannel == null) {
-						thrustSoundChannel = thrust.play(0, int.MAX_VALUE);
+						thrustSoundChannel = thrustSound.play(0, int.MAX_VALUE, thrustSoundTransform);
 					}
 	            } else if (thrustSoundChannel != null) {
 					thrustSoundChannel.stop();
