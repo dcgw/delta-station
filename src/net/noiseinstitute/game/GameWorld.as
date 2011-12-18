@@ -7,7 +7,6 @@ package net.noiseinstitute.game {
     import net.flashpunk.FP;
     import net.flashpunk.World;
     import net.flashpunk.utils.Input;
-
     import net.noiseinstitute.game.tutorial.Tutorial1;
     import net.noiseinstitute.game.tutorial.Tutorial2;
     import net.noiseinstitute.game.tutorial.Tutorial3;
@@ -32,6 +31,7 @@ package net.noiseinstitute.game {
 		private var gameOver:GameOver;
 		private var distanceCounter:DistanceCounter;
 		private var fuelCounter:FuelCounter;
+		private var teaCounter:TeaCounter;
 
         private var tutorial1:Tutorial1 = new Tutorial1();
         private var tutorial2:Tutorial2 = new Tutorial2();
@@ -56,7 +56,7 @@ package net.noiseinstitute.game {
 				var x:Number = Math.random() * PLAY_AREA_WIDTH;
 				var y:Number = Math.random() * PLAY_AREA_HEIGHT;
 				
-				// Make sure the player doesn't spawn next to an asteroid and die immediately.
+				// Make sure the asteroid doesn't spawn next to the player, causing them to die immediately.
 				if (Math.abs(player.x - x) < 20) {
 					x += 20;
 				}
@@ -78,6 +78,9 @@ package net.noiseinstitute.game {
 			fuelCounter = new FuelCounter(0, 50, 1000.0);
 			add(fuelCounter);
 
+			teaCounter = new TeaCounter(0, 70);
+			add(teaCounter);
+			
             add(tutorial1);
             add(tutorial2);
             add(tutorial3);
@@ -126,6 +129,7 @@ package net.noiseinstitute.game {
             }
 
             ++frame;
+			teaCounter.kelvin = teaCounter.kelvin - 0.01;
 
 			super.update();
 		}
