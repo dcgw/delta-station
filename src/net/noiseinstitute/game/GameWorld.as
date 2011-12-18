@@ -18,6 +18,7 @@ package net.noiseinstitute.game {
 		private var kitten:Kitten;
 		private var asteroids:Array = new Array();
 		private var deltaStation:DeltaStation;
+		private var gameOver:GameOver;
 		private var distanceCounter:DistanceCounter;
 		private var fuelCounter:FuelCounter;
 		
@@ -26,12 +27,6 @@ package net.noiseinstitute.game {
 			
 			deltaStation = new DeltaStation(0, 0);
 			add(deltaStation);
-			
-			const RANGE:int = MAX_STARTING_DISTANCE_FROM_DELTA - MIN_STARTING_DISTANCE_FROM_DELTA;
-			var xDistanceFromDelta:int = Math.random() * RANGE;
-			var yDistanceFromDelta:int = Math.random() * RANGE;
-            player = new Player(xDistanceFromDelta, yDistanceFromDelta);
-            add(player);
 			
 			for (var i:int = 0; i < NUMBER_OF_ASTEROIDS; i++) {
 				var x:Number = Math.random() * Main.WIDTH;
@@ -44,6 +39,15 @@ package net.noiseinstitute.game {
 			// The important bit
 			kitten = new Kitten(Math.random() * Main.WIDTH, Math.random() * Main.HEIGHT);
 			add(kitten);
+			
+			const RANGE:int = MAX_STARTING_DISTANCE_FROM_DELTA - MIN_STARTING_DISTANCE_FROM_DELTA;
+			var xDistanceFromDelta:int = Math.random() * RANGE;
+			var yDistanceFromDelta:int = Math.random() * RANGE;
+			player = new Player(xDistanceFromDelta, yDistanceFromDelta);
+			add(player);
+			
+			gameOver = new GameOver(Main.WIDTH/2, Main.HEIGHT/2);
+			add(gameOver);
 			
 			distanceCounter = new DistanceCounter(0, 30);
 			add(distanceCounter);
@@ -63,17 +67,18 @@ package net.noiseinstitute.game {
 			// Detect collisions
 			if (player.collide("Kitten", player.x, player.y) || 
 				player.collide("Asteroid", player.x, player.y)) {
-				ohNoesWeDied();
+				
+				FP.console.log("Collision!");
+				player.asplode();
 			} else {
 				FP.console.log("OK");
 			}
 			
+			if (player.asploded || fuelCounter.isDepleted()) {
+				gameOver.setTextVisible();
+			}
+			
 			super.update();
-		}
-		
-		private function ohNoesWeDied():void {
-			FP.console.log("Collision!");
-			// TODO get 
 		}
     }
 }
