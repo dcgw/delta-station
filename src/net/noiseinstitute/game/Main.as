@@ -15,8 +15,26 @@ package net.noiseinstitute.game {
         public static const KEY_RIGHT:String = "right";
         public static const KEY_THRUST:String = "thrust";
 
+        private static var _main:Main;
+
+        public static function goToGame():void {
+            FP.world = _main._gameWorld;
+        }
+
+        public static function goToIntro():void {
+            FP.world = _main._introWorld;
+        }
+
+        private var _introWorld:IntroWorld;
+        private var _gameWorld:GameWorld;
+
         public function Main() {
             super(WIDTH, HEIGHT, LOGIC_FPS, true);
+
+            _main = this;
+
+            _introWorld = new IntroWorld();
+            _gameWorld = new GameWorld();
 
             Input.define(KEY_LEFT, Key.LEFT);
             Input.define(KEY_RIGHT, Key.RIGHT);
@@ -26,7 +44,7 @@ package net.noiseinstitute.game {
 
             FP.console.enable();
 
-            FP.world = new IntroWorld();
+            FP.world = _introWorld;
         }
     }
 }
