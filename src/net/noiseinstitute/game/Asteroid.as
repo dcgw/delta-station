@@ -54,6 +54,8 @@ package net.noiseinstitute.game
 			y += positionDelta.y;
 			
 			image.angle += spinSpeed;
+			
+			// TODO if asteroid position is outside GameWorld.HEIGHT or GameWorld.WIDTH, move asteroid
 		}
 	}
 }

@@ -16,9 +16,13 @@ package net.noiseinstitute.game {
 		
 		[Embed(source="thrust.mp3")]
 		private static const THRUST_SOUND:Class;
+		[Embed(source="Asplode.mp3")]
+		private static const ASPLODE_SOUND:Class;
 		
 		private var thrust:Sound = Sound(new THRUST_SOUND());
 		private var thrustSoundChannel:SoundChannel;
+		private var asplodeSound:Sound = Sound(new ASPLODE_SOUND());
+		private var asplodeSoundChannel:SoundChannel;
 
         private static const ANGULAR_THRUST:Number = 1/Main.LOGIC_FPS;
         private static const THRUST:Number = 1/Main.LOGIC_FPS;
@@ -83,7 +87,6 @@ package net.noiseinstitute.game {
 	                VectorMath.becomePolar(Static.point, angle, THRUST);
 	                VectorMath.addTo(velocity, Static.point);
 					FuelCounter.fuel -= 0.5;
-					// TODO thrust noise
 					if (thrustSoundChannel == null) {
 						thrustSoundChannel = thrust.play(0, int.MAX_VALUE);
 					}
@@ -101,13 +104,17 @@ package net.noiseinstitute.game {
         }
 		
 		public function asplode():void {
-			thrustSoundChannel = null;
+			if (thrustSoundChannel != null) {
+				thrustSoundChannel.stop();
+				thrustSoundChannel = null;
+			}
 			
 			if (!asploding) {
 				// start small, do animation in update function
 				asplosionImage.scale = 0.05;
 				asploding = true;
 				graphic = asplosionImage;
+				asplodeSoundChannel = asplodeSound.play();
 			}
 		}
 		

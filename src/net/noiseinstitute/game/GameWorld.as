@@ -15,9 +15,11 @@ package net.noiseinstitute.game {
         private var music:Sound = Sound(new MUSIC());
         private var musicChannel:SoundChannel;
 
-		private static const NUMBER_OF_ASTEROIDS:int = 15;
+		private static const NUMBER_OF_ASTEROIDS:int = 40;
 		private static const MIN_STARTING_DISTANCE_FROM_DELTA:int = 800; 
 		private static const MAX_STARTING_DISTANCE_FROM_DELTA:int = 1200;
+		private static const PLAY_AREA_WIDTH:int = 1500;
+		private static const PLAY_AREA_HEIGHT:int = 1500;
 		
 		private var player:Player;
 		private var kitten:Kitten;
@@ -34,8 +36,8 @@ package net.noiseinstitute.game {
 			add(deltaStation);
 			
 			for (var i:int = 0; i < NUMBER_OF_ASTEROIDS; i++) {
-				var x:Number = Math.random() * Main.WIDTH;
-				var y:Number = Math.random() * Main.HEIGHT;
+				var x:Number = Math.random() * PLAY_AREA_WIDTH;
+				var y:Number = Math.random() * PLAY_AREA_HEIGHT;
 				
 				asteroids[i] = new Asteroid(x, y);
 				add(asteroids[i]);
@@ -46,8 +48,8 @@ package net.noiseinstitute.game {
 			add(kitten);
 			
 			const RANGE:int = MAX_STARTING_DISTANCE_FROM_DELTA - MIN_STARTING_DISTANCE_FROM_DELTA;
-			var xDistanceFromDelta:int = Math.random() * RANGE;
-			var yDistanceFromDelta:int = Math.random() * RANGE;
+			var xDistanceFromDelta:int = MIN_STARTING_DISTANCE_FROM_DELTA + (Math.random() * RANGE);
+			var yDistanceFromDelta:int = MIN_STARTING_DISTANCE_FROM_DELTA + (Math.random() * RANGE);
 			player = new Player(xDistanceFromDelta, yDistanceFromDelta);
 			add(player);
 			
