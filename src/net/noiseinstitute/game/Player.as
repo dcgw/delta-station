@@ -1,13 +1,13 @@
 package net.noiseinstitute.game {
     import flash.geom.Point;
+    import flash.media.Sound;
+    import flash.media.SoundChannel;
 
     import flash.media.SoundTransform;
 
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Image;
     import net.flashpunk.utils.Input;
-    import flash.media.Sound;
-    import flash.media.SoundChannel;
 
     public class Player extends Entity {
         [Embed(source="Player.png")]
@@ -80,13 +80,23 @@ package net.noiseinstitute.game {
 				}
 				
 			} else {
+				var buttonPressed:Boolean = false;
+				
 	            if (Input.check(Main.KEY_LEFT)) {
 	                angularVelocity += ANGULAR_THRUST;
 					FuelCounter.fuel -= 0.3;
-	            }
+					if (thrustSoundChannel == null) {
+						thrustSoundChannel = thrustSound.play(0, int.MAX_VALUE);
+					}
+					buttonPressed = true;
+				}
 	            if (Input.check(Main.KEY_RIGHT)) {
 	                angularVelocity -= ANGULAR_THRUST;
 					FuelCounter.fuel -= 0.3;
+					if (thrustSoundChannel == null) {
+						thrustSoundChannel = thrustSound.play(0, int.MAX_VALUE);
+					}
+					buttonPressed = true;
 	            }
 	            if (Input.check(Main.KEY_THRUST)) {
 	                VectorMath.becomePolar(Static.point, angle, THRUST);
@@ -95,7 +105,10 @@ package net.noiseinstitute.game {
 					if (thrustSoundChannel == null) {
 						thrustSoundChannel = thrustSound.play(0, int.MAX_VALUE, thrustSoundTransform);
 					}
-	            } else if (thrustSoundChannel != null) {
+					buttonPressed = true;
+	            }
+				
+				if (!buttonPressed && (thrustSoundChannel != null)) {
 					thrustSoundChannel.stop();
 					thrustSoundChannel = null;
 				}

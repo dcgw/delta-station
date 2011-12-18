@@ -47,9 +47,19 @@ package net.noiseinstitute.game {
 			deltaStation = new DeltaStation(0, 0);
 			add(deltaStation);
 			
+
+            var playerAngleFromDeltaStation:Number = Math.random() * 360;
+            var playerPosition:Point = VectorMath.polar(playerAngleFromDeltaStation, 10000);
+            player = new Player(playerPosition.x, playerPosition.y);
+			add(player);
 			for (var i:int = 0; i < NUMBER_OF_ASTEROIDS; i++) {
 				var x:Number = Math.random() * PLAY_AREA_WIDTH;
 				var y:Number = Math.random() * PLAY_AREA_HEIGHT;
+				
+				// Make sure the player doesn't spawn next to an asteroid and die immediately.
+				if (Math.abs(player.x - x) < 20) {
+					x += 20;
+				}
 				
 				asteroids[i] = new Asteroid(x, y);
 				add(asteroids[i]);
@@ -58,11 +68,6 @@ package net.noiseinstitute.game {
 			// The important bit
 			kitten = new Kitten(Math.random() * Main.WIDTH, Math.random() * Main.HEIGHT);
 			add(kitten);
-
-            var playerAngleFromDeltaStation:Number = Math.random() * 360;
-            var playerPosition:Point = VectorMath.polar(playerAngleFromDeltaStation, 10000);
-            player = new Player(playerPosition.x, playerPosition.y);
-			add(player);
 			
 			gameOver = new GameOver(Main.WIDTH/2, Main.HEIGHT/2);
 			add(gameOver);
