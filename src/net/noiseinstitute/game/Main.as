@@ -3,6 +3,7 @@ package net.noiseinstitute.game {
     import net.flashpunk.FP;
     import net.flashpunk.utils.Input;
     import net.flashpunk.utils.Key;
+    import net.noiseinstitute.game.intro.IntroWorld;
 
     [SWF(width="640", height="480", backgroundColor="#000000", frameRate="60")]
     public class Main extends Engine {
@@ -25,7 +26,7 @@ package net.noiseinstitute.game {
 
             FP.console.enable();
 
-            FP.world = new GameWorld();
+            FP.world = new IntroWorld();
         }
     }
 }
