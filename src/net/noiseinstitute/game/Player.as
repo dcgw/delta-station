@@ -4,6 +4,8 @@ package net.noiseinstitute.game {
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Image;
     import net.flashpunk.utils.Input;
+    import flash.media.Sound;
+    import flash.media.SoundChannel;
 
     public class Player extends Entity {
         [Embed(source="Player.png")]
@@ -11,6 +13,12 @@ package net.noiseinstitute.game {
 		
 		[Embed(source="asplosion2.png")]
 		private static var AsplosionImage:Class;
+		
+		[Embed(source="thrust.mp3")]
+		private static const THRUST_SOUND:Class;
+		
+		private var thrust:Sound = Sound(new THRUST_SOUND());
+		private var thrustSoundChannel:SoundChannel;
 
         private static const ANGULAR_THRUST:Number = 1/Main.LOGIC_FPS;
         private static const THRUST:Number = 1/Main.LOGIC_FPS;
@@ -75,7 +83,14 @@ package net.noiseinstitute.game {
 	                VectorMath.becomePolar(Static.point, angle, THRUST);
 	                VectorMath.addTo(velocity, Static.point);
 					FuelCounter.fuel -= 0.5;
-	            }
+					// TODO thrust noise
+					if (thrustSoundChannel == null) {
+						thrustSoundChannel = thrust.play(0, int.MAX_VALUE);
+					}
+	            } else if (thrustSoundChannel != null) {
+					thrustSoundChannel.stop();
+					thrustSoundChannel = null;
+				}
 	
 	            angle += angularVelocity;
 	            x += velocity.x;
@@ -86,6 +101,8 @@ package net.noiseinstitute.game {
         }
 		
 		public function asplode():void {
+			thrustSoundChannel = null;
+			
 			if (!asploding) {
 				// start small, do animation in update function
 				asplosionImage.scale = 0.05;

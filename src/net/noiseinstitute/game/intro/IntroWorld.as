@@ -90,7 +90,7 @@ package net.noiseinstitute.game.intro {
                 Main.goToGame();
             }
 			
-			if (Input.check(Main.KEY_SKIP_INTRO)) {
+			if (Input.pressed(Main.KEY_SKIP_INTRO)) {
 				Main.goToGame();
 			}
 

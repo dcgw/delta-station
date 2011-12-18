@@ -15,11 +15,12 @@ package net.noiseinstitute.game {
         public static const KEY_RIGHT:String = "right";
         public static const KEY_THRUST:String = "thrust";
 		public static const KEY_SKIP_INTRO:String = "skip_intro";
+		public static const KEY_RETRY:String = "retry";
 
         private static var _main:Main;
 
         public static function goToGame():void {
-            FP.world = _main._gameWorld;
+            FP.world = new GameWorld();
         }
 
         public static function goToIntro():void {
@@ -27,7 +28,6 @@ package net.noiseinstitute.game {
         }
 
         private var _introWorld:IntroWorld;
-        private var _gameWorld:GameWorld;
 
         public function Main() {
             super(WIDTH, HEIGHT, LOGIC_FPS, true);
@@ -35,12 +35,12 @@ package net.noiseinstitute.game {
             _main = this;
 
             _introWorld = new IntroWorld();
-            _gameWorld = new GameWorld();
 
             Input.define(KEY_LEFT, Key.LEFT);
             Input.define(KEY_RIGHT, Key.RIGHT);
             Input.define(KEY_THRUST, Key.UP);
 			Input.define(KEY_SKIP_INTRO, Key.ENTER);
+			Input.define(KEY_RETRY, Key.ENTER);
 
             FP.screen.color = 0x000000;
 

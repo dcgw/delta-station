@@ -4,8 +4,9 @@ package net.noiseinstitute.game {
     import flash.media.SoundChannel;
     
     import net.flashpunk.Entity;
-	import net.flashpunk.FP;
+    import net.flashpunk.FP;
     import net.flashpunk.World;
+    import net.flashpunk.utils.Input;
 
     public class GameWorld extends World {
         [Embed(source="GameMusic.mp3")]
@@ -14,9 +15,9 @@ package net.noiseinstitute.game {
         private var music:Sound = Sound(new MUSIC());
         private var musicChannel:SoundChannel;
 
-		private static const NUMBER_OF_ASTEROIDS:int = 10;
-		private static const MIN_STARTING_DISTANCE_FROM_DELTA:int = 500; 
-		private static const MAX_STARTING_DISTANCE_FROM_DELTA:int = 1000;
+		private static const NUMBER_OF_ASTEROIDS:int = 15;
+		private static const MIN_STARTING_DISTANCE_FROM_DELTA:int = 800; 
+		private static const MAX_STARTING_DISTANCE_FROM_DELTA:int = 1200;
 		
 		private var player:Player;
 		private var kitten:Kitten;
@@ -71,15 +72,16 @@ package net.noiseinstitute.game {
 			// Detect collisions
 			if (player.collide("Kitten", player.x, player.y) || 
 				player.collide("Asteroid", player.x, player.y)) {
-				
-				FP.console.log("Collision!");
-				player.asplode();
-			} else {
-				FP.console.log("OK");
+
+				player.asplode();	
 			}
 			
 			if (player.asploded || fuelCounter.isDepleted()) {
 				gameOver.setTextVisible();
+				
+				if (Input.pressed(Main.KEY_RETRY)) {
+					Main.goToIntro();
+				}
 			}
 			
 			super.update();

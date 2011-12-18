@@ -7,8 +7,8 @@ package net.noiseinstitute.game
 	
 	public class GameOver extends Entity
 	{
-		[Embed(source = '../../../../Art bits/Electrolize-Regular.ttf', embedAsCFF="false", fontFamily = 'Electrolize')]
-		private const ELECTROLIZE:Class;
+//		[Embed(source = '../../../../Art bits/Electrolize-Regular.ttf', embedAsCFF="false", fontFamily = 'Electrolize')]
+//		private const ELECTROLIZE:Class;
 		
 		private var gameOverText:Text;
 		
@@ -23,6 +23,7 @@ package net.noiseinstitute.game
 			gameOverText.scrollX = 0;
 			gameOverText.scrollY = 0;
 			gameOverText.centerOrigin();
+			gameOverText.align = "center";
 			//gameOverText.font = "Electrolize";
 			
 			graphic = gameOverText;
