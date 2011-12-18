@@ -40,13 +40,16 @@ package net.noiseinstitute.game {
         public override function update():void {
             if (Input.check(Main.KEY_LEFT)) {
                 angularVelocity += ANGULAR_THRUST;
+				FuelCounter.fuel -= 0.3;
             }
             if (Input.check(Main.KEY_RIGHT)) {
                 angularVelocity -= ANGULAR_THRUST;
+				FuelCounter.fuel -= 0.3;
             }
             if (Input.check(Main.KEY_THRUST)) {
                 VectorMath.becomePolar(Static.point, angle, THRUST);
                 VectorMath.addTo(velocity, Static.point);
+				FuelCounter.fuel -= 0.5;
             }
 
             angle += angularVelocity;
