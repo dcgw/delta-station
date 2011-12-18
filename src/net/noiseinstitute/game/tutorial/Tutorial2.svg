@@ -70,8 +70,8 @@
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="738"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8" />
+     inkscape:window-x="0"
+     inkscape:window-y="24" />
   <metadata
      id="metadata2388">
     <rdf:RDF>
@@ -88,10 +88,6 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      transform="translate(-56.914518,-182.09403)">
-    <path
-       style="opacity:0.75;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:2.0999999;stroke-dasharray:none;stroke-opacity:1"
-       d="M 162.48542,182.09403 L 56.914518,278.04965 L 478.89148,278.04965 L 584.44047,182.09403 L 162.48542,182.09403 z"
-       id="path2406" />
     <g
        id="g2450"
        style="filter:url(#filter3228)">
