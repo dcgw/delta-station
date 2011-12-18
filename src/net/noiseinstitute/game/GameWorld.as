@@ -1,15 +1,19 @@
 package net.noiseinstitute.game {
     import flash.geom.Point;
-    import flash.system.System;
+    import flash.media.Sound;
+    import flash.media.SoundChannel;
     
     import net.flashpunk.Entity;
-    import net.flashpunk.FP;
+	import net.flashpunk.FP;
     import net.flashpunk.World;
-    import net.flashpunk.debug.Console;
-    import net.flashpunk.graphics.Text;
 
     public class GameWorld extends World {
-		
+        [Embed(source="GameMusic.mp3")]
+        private static const MUSIC:Class;
+
+        private var music:Sound = Sound(new MUSIC());
+        private var musicChannel:SoundChannel;
+
 		private static const NUMBER_OF_ASTEROIDS:int = 10;
 		private static const MIN_STARTING_DISTANCE_FROM_DELTA:int = 500; 
 		private static const MAX_STARTING_DISTANCE_FROM_DELTA:int = 1000;
@@ -80,5 +84,18 @@ package net.noiseinstitute.game {
 			
 			super.update();
 		}
+
+        override public function begin():void {
+            end();
+
+            musicChannel = music.play(0, int.MAX_VALUE);
+        }
+
+        override public function end():void {
+            if (musicChannel != null) {
+                musicChannel.stop();
+                musicChannel = null;
+            }
+        }
     }
 }
