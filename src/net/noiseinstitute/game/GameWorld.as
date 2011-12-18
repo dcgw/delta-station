@@ -1,24 +1,29 @@
 package net.noiseinstitute.game {
+    import flash.geom.Point;
+    
     import net.flashpunk.Entity;
     import net.flashpunk.World;
+    import net.flashpunk.graphics.Text;
 
     public class GameWorld extends World {
 		
 		private static const NUMBER_OF_ASTEROIDS:int = 10;
-		private static const MIN_STARTING_DISTANCE_FROM_DELTA_STATION:int = 500; 
-		private static const MAX_STARTING_DISTANCE_FROM_DELTA_STATION:int = 1000; 
+		private static const MIN_STARTING_DISTANCE_FROM_DELTA:int = 500; 
+		private static const MAX_STARTING_DISTANCE_FROM_DELTA:int = 1000;
 		
 		private var player:Player;
+		private var deltaStation:DeltaStation;
+		private var distanceCounter:DistanceCounter;
 		
         public function GameWorld() {
 			add(new Entity(0, 0, new Starfield(), null));
 			
-			var deltaStation:DeltaStation = new DeltaStation(0, 0);
+			deltaStation = new DeltaStation(0, 0);
 			add(deltaStation);
 			
-			const RANGE_FROM_DELTA_STATION:int = MAX_STARTING_DISTANCE_FROM_DELTA_STATION - MIN_STARTING_DISTANCE_FROM_DELTA_STATION;
-			var xDistanceFromDelta:int = Math.random() * RANGE_FROM_DELTA_STATION;
-			var yDistanceFromDelta:int = Math.random() * RANGE_FROM_DELTA_STATION;
+			const RANGE:int = MAX_STARTING_DISTANCE_FROM_DELTA - MIN_STARTING_DISTANCE_FROM_DELTA;
+			var xDistanceFromDelta:int = Math.random() * RANGE;
+			var yDistanceFromDelta:int = Math.random() * RANGE;
             player = new Player(xDistanceFromDelta, yDistanceFromDelta);
             add(player);
 			
@@ -30,12 +35,20 @@ package net.noiseinstitute.game {
 			}
 
 			// The important bit
-			add(new Kitten(Math.random() * Main.WIDTH, Math.random() * Main.HEIGHT));	
+			add(new Kitten(Math.random() * Main.WIDTH, Math.random() * Main.HEIGHT));
+			
+			distanceCounter = new DistanceCounter(0, 30);
+			add(distanceCounter);
         }
 		
 		public override function update():void {
 			camera.x = player.x - Main.WIDTH/2;
 			camera.y = player.y - Main.HEIGHT/2;
+			var playerPosition:Point = new Point(player.x, player.y);
+			var deltaPosition:Point = new Point(deltaStation.x, deltaStation.y);
+			var distanceFromDelta:Point = VectorMath.subtract(playerPosition, deltaPosition);
+			distanceCounter.distance = VectorMath.magnitude(distanceFromDelta);
+			
 			super.update();
 		}
     }
