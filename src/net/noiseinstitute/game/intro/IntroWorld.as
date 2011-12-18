@@ -69,6 +69,12 @@ package net.noiseinstitute.game.intro {
         }
 
         override public function update():void {
+            presidentOfSpace.speaking =
+                    (frame >= 0.3 * Main.LOGIC_FPS && frame <= 1.4 * Main.LOGIC_FPS)
+                    || (frame >= 2.3 * Main.LOGIC_FPS && frame < 4.7 * Main.LOGIC_FPS)
+                    || (frame >= 5.3 * Main.LOGIC_FPS && frame < 7.7 * Main.LOGIC_FPS)
+                    || (frame >= 8.3 * Main.LOGIC_FPS && frame < 10.7 * Main.LOGIC_FPS);
+
             if (frame >= 2 * Main.LOGIC_FPS && !scroller2.active) {
                 scroller2.start();
             }
