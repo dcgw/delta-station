@@ -2,6 +2,7 @@ package net.noiseinstitute.game {
     import flash.geom.Point;
     
     import net.flashpunk.Entity;
+    import net.flashpunk.FP;
     import net.flashpunk.World;
     import net.flashpunk.graphics.Text;
 
@@ -14,6 +15,7 @@ package net.noiseinstitute.game {
 		private var player:Player;
 		private var deltaStation:DeltaStation;
 		private var distanceCounter:DistanceCounter;
+		private var fuelCounter:FuelCounter;
 		
         public function GameWorld() {
 			add(new Entity(0, 0, new Starfield(), null));
@@ -39,6 +41,9 @@ package net.noiseinstitute.game {
 			
 			distanceCounter = new DistanceCounter(0, 30);
 			add(distanceCounter);
+			
+			fuelCounter = new FuelCounter(0, 50, 1000.0);
+			add(fuelCounter);
         }
 		
 		public override function update():void {
