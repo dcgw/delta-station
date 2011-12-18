@@ -41,9 +41,12 @@ package net.noiseinstitute.game
 			// The speed at which the asteroid spins around
 			spinSpeed = MAX_SPIN_SPEED * Math.random();
 			
+			graphic = image;
+			type = "Asteroid";
+			
 			image.centerOrigin();
 			
-			graphic = image;
+			setHitbox(image.width, image.height, image.originX, image.originY);
 		}
 		
 		public override function update():void {

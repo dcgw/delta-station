@@ -42,8 +42,11 @@ package net.noiseinstitute.game
 			spinSpeed = MAX_SPIN_SPEED * Math.random();
 			
 			image.centerOrigin();
+			type = "Kitten";
 			
 			graphic = image;
+			
+			setHitbox(image.width, image.height, image.originX, image.originY);
 		}
 		
 		public override function update():void {

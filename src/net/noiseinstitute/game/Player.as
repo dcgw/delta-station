@@ -33,8 +33,10 @@ package net.noiseinstitute.game {
             image.smooth = true;
 
             graphic = image;
-
-            image.centerOrigin();
+			
+			image.centerOrigin();
+			
+			setHitbox(image.width, image.height, image.originX, image.originY);
         }
 
         public override function update():void {
