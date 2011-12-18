@@ -8,13 +8,14 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="640px"
-   height="480px"
+   width="1074.0625"
+   height="96"
    id="svg2383"
    sodipodi:version="0.32"
    inkscape:version="0.46"
    sodipodi:docname="Come quickly.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0">
   <defs
      id="defs2385">
     <inkscape:perspective
@@ -24,6 +25,54 @@
        inkscape:vp_z="640 : 240 : 1"
        inkscape:persp3d-origin="320 : 160 : 1"
        id="perspective2391" />
+    <filter
+       inkscape:collect="always"
+       id="filter3190"
+       x="-0.032575972"
+       width="1.0651519"
+       y="-0.37938264"
+       height="1.7587653">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="7.5876526"
+         id="feGaussianBlur3192" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3250"
+       x="-0.011872094"
+       width="1.0237442"
+       y="-0.2437721"
+       height="1.4875442">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.8754422"
+         id="feGaussianBlur3252" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3301"
+       x="-0.012527314"
+       width="1.0250546"
+       y="-0.28508216"
+       height="1.5701643">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.2191602"
+         id="feGaussianBlur3303" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3342"
+       x="-0.012704103"
+       width="1.0254081"
+       y="-0.21651562"
+       height="1.4330312">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.3303125"
+         id="feGaussianBlur3344" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -32,9 +81,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="320"
-     inkscape:cy="240"
+     inkscape:zoom="0.81930824"
+     inkscape:cx="937.47716"
+     inkscape:cy="48"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
      showgrid="false"
@@ -56,28 +105,34 @@
   <g
      id="layer1"
      inkscape:label="Layer 1"
-     inkscape:groupmode="layer">
-    <rect
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:2.0999999;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2399"
-       width="640"
-       height="480"
-       x="0"
-       y="0" />
+     inkscape:groupmode="layer"
+     transform="translate(0,-384)">
+    <path
+       style="opacity:0.75;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:2.0999999;stroke-dasharray:none;stroke-opacity:1"
+       d="M 105.625,0 L 0,96 L 47.59375,96 L 608,96 L 655.59375,96 L 709.375,96 L 756.96875,96 L 958.6875,96 L 968.4375,96 L 1074.0625,0 L 1064.3125,0 L 862.59375,0 L 815,0 L 655.59375,0 L 608,0 L 153.21875,0 L 105.625,0 z"
+       transform="translate(0,384)"
+       id="rect2399" />
+    <text
+       sodipodi:linespacing="100%"
+       id="text3338"
+       y="444"
+       x="537.01221"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3342);font-family:Electrolize;-inkscape-font-specification:Electrolize"
+       xml:space="preserve"><tspan
+         id="tspan3340"
+         y="444"
+         x="537.01221"
+         sodipodi:role="line">Come quickly! Your tea is getting cold!</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Electrolize;-inkscape-font-specification:Electrolize"
-       x="320.09888"
-       y="209.75977"
+       x="537.01221"
+       y="444"
        id="text2393"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         x="320.09888"
-         y="209.75977"
-         id="tspan3393">Come quickly!</tspan><tspan
-         sodipodi:role="line"
-         x="320.09888"
-         y="257.75977"
-         id="tspan3417">Your tea is getting cold!</tspan></text>
+         x="537.01221"
+         y="444"
+         id="tspan2397">Come quickly! Your tea is getting cold!</tspan></text>
   </g>
 </svg>
