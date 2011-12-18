@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="527.52594"
+   height="95.955627"
+   id="svg2383"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="Tutorial2.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0"
+   inkscape:export-filename="C:\Users\djc\Code\ld22\src\net\noiseinstitute\game\tutorial\Tutorial2.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs2385">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 240 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="640 : 240 : 1"
+       inkscape:persp3d-origin="320 : 160 : 1"
+       id="perspective2391" />
+    <inkscape:perspective
+       id="perspective2400"
+       inkscape:persp3d-origin="320 : 160 : 1"
+       inkscape:vp_z="640 : 240 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 240 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2465"
+       inkscape:persp3d-origin="320 : 160 : 1"
+       inkscape:vp_z="640 : 240 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 240 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <filter
+       inkscape:collect="always"
+       id="filter3228"
+       x="-0.031560195"
+       width="1.0631204"
+       y="-0.10018851"
+       height="1.200377">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.6867233"
+         id="feGaussianBlur3230" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="263.76297"
+     inkscape:cy="47.977814"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="738"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8" />
+  <metadata
+     id="metadata2388">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(-56.914518,-182.09403)">
+    <path
+       style="opacity:0.75;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:2.0999999;stroke-dasharray:none;stroke-opacity:1"
+       d="M 162.48542,182.09403 L 56.914518,278.04965 L 478.89148,278.04965 L 584.44047,182.09403 L 162.48542,182.09403 z"
+       id="path2406" />
+    <g
+       id="g2450"
+       style="filter:url(#filter3228)">
+      <text
+         xml:space="preserve"
+         style="font-size:28.79999923999999800px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Electrolize;-inkscape-font-specification:Electrolize"
+         x="320.08862"
+         y="224.05392"
+         id="text2425"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           x="320.08862"
+           y="224.05392"
+           id="tspan2427"><tspan
+             style="fill:#00ff00"
+             dx="0 0 0 0 0 10.847458"
+             id="tspan2429">Use <tspan
+   style="font-size:28.79999923999999800px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;font-family:Arial;-inkscape-font-specification:Arial;fill:#00ff00"
+   id="tspan2431"
+   dx="10.847458">↑</tspan> to apply</tspan></tspan><tspan
+           dy="5.4237289"
+           sodipodi:role="line"
+           x="320.08862"
+           y="256.82813"
+           id="tspan2433">forward thrust</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#00ff00;stroke-width:3;stroke-linejoin:miter;stroke-miterlimit:2.09999989999999980;stroke-dasharray:none;stroke-opacity:1"
+         id="rect2435"
+         width="34.799999"
+         height="34.799999"
+         x="275.69492"
+         y="199.39182"
+         rx="7.1999998"
+         ry="7.1999998" />
+    </g>
+    <g
+       id="g2488">
+      <g
+         id="g2505"
+         transform="matrix(0.6,0,0,0.6,229.4738,256.52082)">
+        <text
+           xml:space="preserve"
+           style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Electrolize;-inkscape-font-specification:Electrolize"
+           x="151.0247"
+           y="-54.111485"
+           id="text2472"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             x="151.0247"
+             y="-54.111485"
+             id="tspan2474"><tspan
+               dx="0 0 0 0 0 18.079096"
+               id="tspan3315">Use <tspan
+   style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;font-family:Arial;-inkscape-font-specification:Arial"
+   id="tspan3321"
+   dx="18.079096">↑</tspan> to apply</tspan></tspan><tspan
+             dy="9.0395479"
+             sodipodi:role="line"
+             x="151.0247"
+             y="0.51217139"
+             id="tspan3319">forward thrust</tspan></text>
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:5;stroke-linejoin:miter;stroke-miterlimit:2.0999999;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2470"
+           width="58"
+           height="58"
+           x="77.035194"
+           y="-95.214996"
+           rx="12"
+           ry="12" />
+      </g>
+    </g>
+  </g>
+</svg>
