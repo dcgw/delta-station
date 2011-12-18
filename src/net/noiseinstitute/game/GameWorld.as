@@ -8,6 +8,10 @@ package net.noiseinstitute.game {
     import net.flashpunk.World;
     import net.flashpunk.utils.Input;
 
+    import net.noiseinstitute.game.tutorial.Tutorial1;
+    import net.noiseinstitute.game.tutorial.Tutorial2;
+    import net.noiseinstitute.game.tutorial.Tutorial3;
+
     public class GameWorld extends World {
         [Embed(source="GameMusic.mp3")]
         private static const MUSIC:Class;
@@ -28,6 +32,14 @@ package net.noiseinstitute.game {
 		private var gameOver:GameOver;
 		private var distanceCounter:DistanceCounter;
 		private var fuelCounter:FuelCounter;
+
+        private var tutorial1:Tutorial1 = new Tutorial1();
+        private var tutorial2:Tutorial2 = new Tutorial2();
+        private var tutorial3:Tutorial3 = new Tutorial3();
+
+        private var tutorialLevel:int = 0;
+
+        private var frame:int = 0;
 		
         public function GameWorld() {
 			add(new Entity(0, 0, new Starfield(), null));
@@ -61,6 +73,10 @@ package net.noiseinstitute.game {
 			
 			fuelCounter = new FuelCounter(0, 50, 1000.0);
 			add(fuelCounter);
+
+            add(tutorial1);
+            add(tutorial2);
+            add(tutorial3);
         }
 		
 		public override function update():void {
@@ -85,7 +101,28 @@ package net.noiseinstitute.game {
 					Main.goToIntro();
 				}
 			}
-			
+
+            if (frame > 0.2 * Main.LOGIC_FPS && tutorialLevel < 1) {
+                tutorial1.x = player.x - 32;
+                tutorial1.y = player.y + 96;
+                tutorial1.start();
+                tutorialLevel = 1;
+            }
+            if (frame > 3 * Main.LOGIC_FPS && tutorialLevel < 2) {
+                tutorial2.x = player.x;
+                tutorial2.y = player.y + 112;
+                tutorial2.start();
+                tutorialLevel = 2;
+            }
+            if (frame > 5.8 * Main.LOGIC_FPS && tutorialLevel < 3) {
+                tutorial3.x = player.x + 32;
+                tutorial3.y = player.y + 128;
+                tutorial3.start();
+                tutorialLevel = 3;
+            }
+
+            ++frame;
+
 			super.update();
 		}
 

@@ -1,11 +1,11 @@
 package net.noiseinstitute.game.intro {
     import flash.media.Sound;
     import flash.media.SoundChannel;
+    import flash.media.SoundTransform;
 
-    import net.flashpunk.FP;
     import net.flashpunk.World;
     import net.flashpunk.graphics.Image;
-	import net.flashpunk.utils.Input;
+    import net.flashpunk.utils.Input;
     import net.noiseinstitute.game.Main;
 
     public class IntroWorld extends World {
@@ -26,6 +26,7 @@ package net.noiseinstitute.game.intro {
 
         private var music:Sound = Sound(new MUSIC());
         private var musicChannel:SoundChannel;
+        private var musicTransform:SoundTransform = new SoundTransform(0.6);
 
         private var text1:Image = new Image(TEXT1);
         private var text2:Image = new Image(TEXT2);
@@ -57,7 +58,7 @@ package net.noiseinstitute.game.intro {
             scroller3.stop();
             scroller4.stop();
 
-            musicChannel = music.play(0, int.MAX_VALUE);
+            musicChannel = music.play(0, int.MAX_VALUE, musicTransform);
         }
 
         override public function end():void {

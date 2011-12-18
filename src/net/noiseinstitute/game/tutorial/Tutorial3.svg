@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="527.52594"
+   height="95.955627"
+   id="svg2383"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="Tutorial3.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0"
+   inkscape:export-filename="C:\Users\djc\Code\ld22\src\net\noiseinstitute\game\tutorial\Tutorial3.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs2385">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 240 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="640 : 240 : 1"
+       inkscape:persp3d-origin="320 : 160 : 1"
+       id="perspective2391" />
+    <inkscape:perspective
+       id="perspective2400"
+       inkscape:persp3d-origin="320 : 160 : 1"
+       inkscape:vp_z="640 : 240 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 240 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2465"
+       inkscape:persp3d-origin="320 : 160 : 1"
+       inkscape:vp_z="640 : 240 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 240 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <filter
+       inkscape:collect="always"
+       id="filter3161"
+       x="-0.027762139"
+       width="1.0555243"
+       y="-0.1771044"
+       height="1.3542088">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.697919"
+         id="feGaussianBlur3163" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="263.76297"
+     inkscape:cy="47.977814"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="738"
+     inkscape:window-x="0"
+     inkscape:window-y="24" />
+  <metadata
+     id="metadata2388">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(-56.914518,-182.09403)">
+    <text
+       sodipodi:linespacing="100%"
+       id="text2385"
+       y="224.05392"
+       x="320.08862"
+       style="font-size:28.79999923999999800px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Electrolize;-inkscape-font-specification:Electrolize;filter:url(#filter3161)"
+       xml:space="preserve"><tspan
+         id="tspan2387"
+         y="224.05392"
+         x="320.08862"
+         sodipodi:role="line">Avoid asteroids!</tspan><tspan
+         id="tspan2389"
+         y="252.85393"
+         x="320.08862"
+         sodipodi:role="line"> Don't use too much fuel!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:28.79999924px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Electrolize;-inkscape-font-specification:Electrolize"
+       x="320.08862"
+       y="224.05392"
+       id="text2472"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         x="320.08862"
+         y="224.05392"
+         id="tspan3319">Avoid asteroids!</tspan><tspan
+         sodipodi:role="line"
+         x="320.08862"
+         y="252.85393"
+         id="tspan2409"> Don't use too much fuel!</tspan></text>
+  </g>
+</svg>
