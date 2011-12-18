@@ -58,11 +58,10 @@ package net.noiseinstitute.game {
 			// The important bit
 			kitten = new Kitten(Math.random() * Main.WIDTH, Math.random() * Main.HEIGHT);
 			add(kitten);
-			
-			const RANGE:int = MAX_STARTING_DISTANCE_FROM_DELTA - MIN_STARTING_DISTANCE_FROM_DELTA;
-			var xDistanceFromDelta:int = MIN_STARTING_DISTANCE_FROM_DELTA + (Math.random() * RANGE);
-			var yDistanceFromDelta:int = MIN_STARTING_DISTANCE_FROM_DELTA + (Math.random() * RANGE);
-			player = new Player(xDistanceFromDelta, yDistanceFromDelta);
+
+            var playerAngleFromDeltaStation:Number = Math.random() * 360;
+            var playerPosition:Point = VectorMath.polar(playerAngleFromDeltaStation, 10000);
+            player = new Player(playerPosition.x, playerPosition.y);
 			add(player);
 			
 			gameOver = new GameOver(Main.WIDTH/2, Main.HEIGHT/2);
