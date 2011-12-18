@@ -27,6 +27,10 @@ package net.noiseinstitute.game
 				text.concat(" (frozen!)");
 			}
 			counterText.text = text;
+			
+			if (kelvin < 0.0) {
+				kelvin = 0.0;
+			}
 		}
 	}
 }

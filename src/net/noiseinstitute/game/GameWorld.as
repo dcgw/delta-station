@@ -57,7 +57,7 @@ package net.noiseinstitute.game {
 				var x:Number = Math.random() * PLAY_AREA_WIDTH;
 				var y:Number = Math.random() * PLAY_AREA_HEIGHT;
 				
-				// Make sure the player doesn't spawn next to an asteroid and die immediately.
+				// Make sure the asteroid doesn't spawn next to the player, causing them to die immediately.
 				if (Math.abs(player.x - x) < 20) {
 					x += 20;
 				}
