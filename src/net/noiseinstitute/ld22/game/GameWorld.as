@@ -65,7 +65,7 @@ package net.noiseinstitute.ld22.game {
             // The important bit
             var kittenAngleFromDeltaStation:Number = Math.random() * 360;
             var kittenStartPosition:Point = VectorMath.polar(kittenAngleFromDeltaStation, KITTEN_DISTANCE_FROM_DELTA_STATION);
-            kitten = new Kitten(kittenStartPosition.x, kittenStartPosition.y);
+            kitten = new Kitten(deltaStation.x + kittenStartPosition.x, deltaStation.y + kittenStartPosition.y);
             add(kitten);
 
             distanceCounter = new DistanceCounter(player, deltaStation);
