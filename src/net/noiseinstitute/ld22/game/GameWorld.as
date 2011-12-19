@@ -18,7 +18,7 @@ package net.noiseinstitute.ld22.game {
         private var music:Sound = Sound(new MUSIC());
         private var musicChannel:SoundChannel;
 
-        private static const NUMBER_OF_ASTEROIDS:int = 40;
+        private static const NUMBER_OF_ASTEROIDS:int = 120;
         public static const ASTEROID_WRAP_WIDTH:int = 1400;
         public static const ASTEROID_WRAP_HEIGHT:int = 1400;
 
@@ -58,7 +58,7 @@ package net.noiseinstitute.ld22.game {
                 var x:Number = Math.random() * ASTEROID_WRAP_WIDTH;
                 var y:Number = Math.random() * ASTEROID_WRAP_HEIGHT;
 
-                asteroids[i] = new Asteroid(x, y, player);
+                asteroids[i] = new Asteroid(x, y, player, i/NUMBER_OF_ASTEROIDS);
                 add(asteroids[i]);
             }
 

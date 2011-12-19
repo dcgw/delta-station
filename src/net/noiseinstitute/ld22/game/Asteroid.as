@@ -6,12 +6,18 @@ package net.noiseinstitute.ld22.game
     import net.flashpunk.graphics.Image;
     import net.noiseinstitute.ld22.Main;
     import net.noiseinstitute.ld22.Range;
+    import net.noiseinstitute.ld22.Static;
     import net.noiseinstitute.ld22.VectorMath;
 
     public class Asteroid extends Entity {
 
         [Embed(source="asteroid.png")]
         private static var AsteroidImage:Class;
+
+        private static const NEAR_PLAYER_DISTANCE:Number = 700;
+
+        private static const ASTEROIDS_START_DISTANCE:Number = 500;
+        private static const ASTEROIDS_END_DISTANCE:Number = 9000;
 
         private static const MAX_ANGLE:Number = 360;
         private static const MAX_SPEED:Number = 20 / Main.LOGIC_FPS;
@@ -21,19 +27,26 @@ package net.noiseinstitute.ld22.game
 
         private var player:Player;
 
+        private var startPosition:Point = new Point();
         private var velocity:Point = new Point();
         private var spinSpeed:Number = 0;
+        private var difficulty:Number;
 
         /**
          * x and y values are the initial position
          *
          * The speed and direction are determined at random.
          */
-        public function Asteroid(x:Number, y:Number, player:Player) {
+        public function Asteroid(x:Number, y:Number, player:Player, difficulty:Number) {
             this.x = x;
             this.y = y;
 
+            startPosition.x = x;
+            startPosition.y = y;
+
             this.player = player;
+
+            this.difficulty = difficulty;
 
             // The direction the asteroid moves
             var direction:Number = Math.random() * MAX_ANGLE;
@@ -54,6 +67,9 @@ package net.noiseinstitute.ld22.game
             image.centerOrigin();
 
             setHitbox(image.width, image.height, image.originX, image.originY);
+
+            updateDifficulty(-GameWorld.ASTEROID_WRAP_WIDTH*0.5, GameWorld.ASTEROID_WRAP_WIDTH*0.5,
+                    -GameWorld.ASTEROID_WRAP_HEIGHT*0.5, GameWorld.ASTEROID_WRAP_HEIGHT*0.5);
         }
 
         public override function update():void {
@@ -62,8 +78,33 @@ package net.noiseinstitute.ld22.game
 
             image.angle += spinSpeed;
 
-            x = Range.wrap(x, player.x - GameWorld.ASTEROID_WRAP_WIDTH*0.5, player.x + GameWorld.ASTEROID_WRAP_WIDTH*0.5);
-            y = Range.wrap(y, player.y - GameWorld.ASTEROID_WRAP_WIDTH*0.5, player.y + GameWorld.ASTEROID_WRAP_WIDTH*0.5);
+            var playfieldLeft:Number = player.x - GameWorld.ASTEROID_WRAP_WIDTH*0.5;
+            var playfieldRight:Number = player.x + GameWorld.ASTEROID_WRAP_WIDTH*0.5;
+            var playfieldTop:Number = player.y - GameWorld.ASTEROID_WRAP_HEIGHT*0.5;
+            var playfieldBottom:Number = player.y + GameWorld.ASTEROID_WRAP_HEIGHT*0.5;
+
+            x = Range.wrap(x, playfieldLeft, playfieldRight);
+            y = Range.wrap(y, playfieldTop, playfieldBottom);
+
+            Static.point.x = x - player.x;
+            Static.point.y = y - player.y;
+            var distanceFromPlayer:Number = VectorMath.magnitude(Static.point);
+
+            if (distanceFromPlayer > NEAR_PLAYER_DISTANCE) {
+                updateDifficulty(playfieldLeft, playfieldRight, playfieldTop, playfieldBottom);
+            }
+        }
+
+        private function updateDifficulty (playfieldLeft:Number, playfieldRight:Number, playfieldTop:Number, playfieldBottom:Number):void {
+            var difficultyDistance:Number = ASTEROIDS_START_DISTANCE
+                    + difficulty * (ASTEROIDS_END_DISTANCE - ASTEROIDS_START_DISTANCE);
+
+            Static.point.x = Range.wrap(startPosition.x, playfieldLeft, playfieldRight);
+            Static.point.y = Range.wrap(startPosition.y, playfieldTop, playfieldBottom);
+
+            var startDistance:Number = VectorMath.magnitude(Static.point);
+            collidable = visible = startDistance > difficultyDistance
+                    && startDistance < ASTEROIDS_END_DISTANCE;
         }
     }
 }
