@@ -90,10 +90,10 @@ package net.noiseinstitute.game.intro {
             if (frame >= 12 * Main.LOGIC_FPS) {
                 Main.goToGame();
             }
-			
-			if (Input.pressed(Main.KEY_SKIP_INTRO)) {
-				Main.goToGame();
-			}
+
+            if (Input.pressed(Main.KEY_SKIP_INTRO)) {
+                Main.goToGame();
+            }
 
             ++frame;
 

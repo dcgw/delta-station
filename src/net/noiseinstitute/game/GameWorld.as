@@ -18,20 +18,20 @@ package net.noiseinstitute.game {
         private var music:Sound = Sound(new MUSIC());
         private var musicChannel:SoundChannel;
 
-		private static const NUMBER_OF_ASTEROIDS:int = 40;
-		private static const MIN_STARTING_DISTANCE_FROM_DELTA:int = 800; 
-		private static const MAX_STARTING_DISTANCE_FROM_DELTA:int = 1200;
-		private static const PLAY_AREA_WIDTH:int = 1500;
-		private static const PLAY_AREA_HEIGHT:int = 1500;
-		
-		private var player:Player;
-		private var kitten:Kitten;
-		private var asteroids:Array = new Array();
-		private var deltaStation:DeltaStation;
-		private var gameOver:GameOver;
-		private var distanceCounter:DistanceCounter;
-		private var fuelCounter:FuelCounter;
-		private var teaCounter:TeaCounter;
+        private static const NUMBER_OF_ASTEROIDS:int = 40;
+        private static const MIN_STARTING_DISTANCE_FROM_DELTA:int = 800;
+        private static const MAX_STARTING_DISTANCE_FROM_DELTA:int = 1200;
+        private static const PLAY_AREA_WIDTH:int = 1500;
+        private static const PLAY_AREA_HEIGHT:int = 1500;
+
+        private var player:Player;
+        private var kitten:Kitten;
+        private var asteroids:Array = new Array();
+        private var deltaStation:DeltaStation;
+        private var gameOver:GameOver;
+        private var distanceCounter:DistanceCounter;
+        private var fuelCounter:FuelCounter;
+        private var teaCounter:TeaCounter;
 
         private var tutorial1:Tutorial1 = new Tutorial1();
         private var tutorial2:Tutorial2 = new Tutorial2();
@@ -40,74 +40,74 @@ package net.noiseinstitute.game {
         private var tutorialLevel:int = 0;
 
         private var frame:int = 0;
-		
+
         public function GameWorld() {
-			add(new Entity(0, 0, new Starfield(), null));
-			
-			deltaStation = new DeltaStation(0, 0);
-			add(deltaStation);
-			
+            add(new Entity(0, 0, new Starfield(), null));
+
+            deltaStation = new DeltaStation(0, 0);
+            add(deltaStation);
+
 
             var playerAngleFromDeltaStation:Number = Math.random() * 360;
             var playerPosition:Point = VectorMath.polar(playerAngleFromDeltaStation, 10000);
             player = new Player(playerPosition.x, playerPosition.y);
-			add(player);
-			for (var i:int = 0; i < NUMBER_OF_ASTEROIDS; i++) {
-				var x:Number = Math.random() * PLAY_AREA_WIDTH;
-				var y:Number = Math.random() * PLAY_AREA_HEIGHT;
-				
-				// Make sure the asteroid doesn't spawn next to the player, causing them to die immediately.
-				if (Math.abs(player.x - x) < 20) {
-					x += 20;
-				}
-				
-				asteroids[i] = new Asteroid(x, y);
-				add(asteroids[i]);
-			}
+            add(player);
+            for (var i:int = 0; i < NUMBER_OF_ASTEROIDS; i++) {
+                var x:Number = Math.random() * PLAY_AREA_WIDTH;
+                var y:Number = Math.random() * PLAY_AREA_HEIGHT;
 
-			// The important bit
-			kitten = new Kitten(Math.random() * Main.WIDTH, Math.random() * Main.HEIGHT);
-			add(kitten);
-			
-			gameOver = new GameOver(Main.WIDTH/2, Main.HEIGHT/2);
-			add(gameOver);
-			
-			distanceCounter = new DistanceCounter(0, 30);
-			add(distanceCounter);
-			
-			fuelCounter = new FuelCounter(0, 50, 1000.0);
-			add(fuelCounter);
+                // Make sure the asteroid doesn't spawn next to the player, causing them to die immediately.
+                if (Math.abs(player.x - x) < 20) {
+                    x += 20;
+                }
 
-			teaCounter = new TeaCounter(0, 70);
-			add(teaCounter);
-			
+                asteroids[i] = new Asteroid(x, y);
+                add(asteroids[i]);
+            }
+
+            // The important bit
+            kitten = new Kitten(Math.random() * Main.WIDTH, Math.random() * Main.HEIGHT);
+            add(kitten);
+
+            gameOver = new GameOver(Main.WIDTH/2, Main.HEIGHT/2);
+            add(gameOver);
+
+            distanceCounter = new DistanceCounter(0, 30);
+            add(distanceCounter);
+
+            fuelCounter = new FuelCounter(0, 50, 1000.0);
+            add(fuelCounter);
+
+            teaCounter = new TeaCounter(0, 70);
+            add(teaCounter);
+
             add(tutorial1);
             add(tutorial2);
             add(tutorial3);
         }
-		
-		public override function update():void {
-			camera.x = player.x - Main.WIDTH/2;
-			camera.y = player.y - Main.HEIGHT/2;
-			var playerPosition:Point = new Point(player.x, player.y);
-			var deltaPosition:Point = new Point(deltaStation.x, deltaStation.y);
-			var distanceFromDelta:Point = VectorMath.subtract(playerPosition, deltaPosition);
-			distanceCounter.distance = VectorMath.magnitude(distanceFromDelta);
-			
-			// Detect collisions
-			if (player.collide("Kitten", player.x, player.y) || 
-				player.collide("Asteroid", player.x, player.y)) {
 
-				player.asplode();	
-			}
-			
-			if (player.asploded || fuelCounter.isDepleted()) {
-				gameOver.setTextVisible();
-				
-				if (Input.pressed(Main.KEY_RETRY)) {
-					Main.goToIntro();
-				}
-			}
+        public override function update():void {
+            camera.x = player.x - Main.WIDTH/2;
+            camera.y = player.y - Main.HEIGHT/2;
+            var playerPosition:Point = new Point(player.x, player.y);
+            var deltaPosition:Point = new Point(deltaStation.x, deltaStation.y);
+            var distanceFromDelta:Point = VectorMath.subtract(playerPosition, deltaPosition);
+            distanceCounter.distance = VectorMath.magnitude(distanceFromDelta);
+
+            // Detect collisions
+            if (player.collide("Kitten", player.x, player.y) ||
+                player.collide("Asteroid", player.x, player.y)) {
+
+                player.asplode();
+            }
+
+            if (player.asploded || fuelCounter.isDepleted()) {
+                gameOver.setTextVisible();
+
+                if (Input.pressed(Main.KEY_RETRY)) {
+                    Main.goToIntro();
+                }
+            }
 
             if (frame > 0.2 * Main.LOGIC_FPS && tutorialLevel < 1) {
                 tutorial1.x = player.x - 32;
@@ -129,10 +129,10 @@ package net.noiseinstitute.game {
             }
 
             ++frame;
-			teaCounter.kelvin = teaCounter.kelvin - 0.01;
+            teaCounter.kelvin = teaCounter.kelvin - 0.01;
 
-			super.update();
-		}
+            super.update();
+        }
 
         override public function begin():void {
             end();
