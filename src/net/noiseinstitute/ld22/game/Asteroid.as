@@ -50,6 +50,7 @@ package net.noiseinstitute.ld22.game
             graphic = image;
             type = "Asteroid";
 
+            image.smooth = true;
             image.centerOrigin();
 
             setHitbox(image.width, image.height, image.originX, image.originY);

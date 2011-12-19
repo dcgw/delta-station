@@ -40,7 +40,9 @@ package net.noiseinstitute.ld22.game
             // The speed at which the kitten spins around
             spinSpeed = MAX_SPIN_SPEED * Math.random();
 
+            image.smooth = true;
             image.centerOrigin();
+
             type = "Kitten";
 
             graphic = image;
