@@ -21,7 +21,8 @@ package net.noiseinstitute.ld22.game
         private static const FADE_START_DISTANCE:Number = Main.HEIGHT * 0.5;
         private static const FADE_END_DISTANCE:Number = Main.HEIGHT * 0.25;
 
-        private static const COUNTER_DISTANCE_FROM_PLAYER:Number = 128;
+        private static const ARROW_DISTANCE_FROM_PLAYER:Number = 128;
+        private static const TEXT_DISTANCE_FROM_ARROW:Number = 80;
 
         private var arrow:Image;
         private var text:Text;
@@ -55,7 +56,7 @@ package net.noiseinstitute.ld22.game
             arrow.angle = VectorMath.angle(Static.point);
 
             var distance:Number = VectorMath.magnitude(Static.point);
-            text.text = "Delta\nStation\n" + distance.toFixed(2) + "\nSpace\nLeagues";
+            text.text = "Delta Station\n" + distance.toFixed(2) + " Space Leagues";
             text.centerOrigin();
 
             var alpha:Number = (distance - FADE_END_DISTANCE)
@@ -69,7 +70,12 @@ package net.noiseinstitute.ld22.game
                 return;
             }
 
-            VectorMath.scaleInPlace(Static.point, COUNTER_DISTANCE_FROM_PLAYER/distance);
+            VectorMath.copyTo(Static.point2, Static.point);
+            VectorMath.scaleInPlace(Static.point2, TEXT_DISTANCE_FROM_ARROW/distance);
+            text.x = Static.point2.x;
+            text.y = Static.point2.y;
+
+            VectorMath.scaleInPlace(Static.point, ARROW_DISTANCE_FROM_PLAYER/distance);
 
             x = player.x + Static.point.x;
             y = player.y + Static.point.y;
