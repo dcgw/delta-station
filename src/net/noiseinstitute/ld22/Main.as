@@ -20,8 +20,7 @@ package net.noiseinstitute.ld22 {
         public static const KEY_LEFT:String = "left";
         public static const KEY_RIGHT:String = "right";
         public static const KEY_THRUST:String = "thrust";
-        public static const KEY_SKIP_INTRO:String = "skip_intro";
-        public static const KEY_RETRY:String = "retry";
+        public static const KEY_CONTINUE:String = "skip_intro";
 
         private static var _main:Main;
 
@@ -45,8 +44,7 @@ package net.noiseinstitute.ld22 {
             Input.define(KEY_LEFT, Key.LEFT);
             Input.define(KEY_RIGHT, Key.RIGHT);
             Input.define(KEY_THRUST, Key.UP);
-            Input.define(KEY_SKIP_INTRO, Key.ENTER);
-            Input.define(KEY_RETRY, Key.ENTER);
+            Input.define(KEY_CONTINUE, Key.ENTER, Key.SPACE, Key.X);
 
             FP.screen.color = 0x000000;
 

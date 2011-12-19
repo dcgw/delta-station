@@ -99,7 +99,7 @@ package net.noiseinstitute.ld22.game {
             if (player.asploded || fuelCounter.isDepleted()) {
                 gameOver.setTextVisible();
 
-                if (Input.pressed(Main.KEY_RETRY)) {
+                if (Input.pressed(Main.KEY_CONTINUE)) {
                     Main.goToIntro();
                 }
             }

@@ -91,7 +91,7 @@ package net.noiseinstitute.ld22.intro {
                 Main.goToGame();
             }
 
-            if (Input.pressed(Main.KEY_SKIP_INTRO)) {
+            if (Input.pressed(Main.KEY_CONTINUE)) {
                 Main.goToGame();
             }
 
