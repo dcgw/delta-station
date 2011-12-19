@@ -3,8 +3,6 @@ package net.noiseinstitute.game
     import flash.geom.Point;
 
     import net.flashpunk.Entity;
-    import net.flashpunk.Graphic;
-    import net.flashpunk.Mask;
     import net.flashpunk.graphics.Image;
 
     public class Asteroid extends Entity {
