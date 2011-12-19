@@ -20,7 +20,7 @@ package net.noiseinstitute.ld22 {
         public static const KEY_LEFT:String = "left";
         public static const KEY_RIGHT:String = "right";
         public static const KEY_THRUST:String = "thrust";
-        public static const KEY_CONTINUE:String = "skip_intro";
+        public static const KEY_CONTINUE:String = "continue";
 
         private static var _main:Main;
 
