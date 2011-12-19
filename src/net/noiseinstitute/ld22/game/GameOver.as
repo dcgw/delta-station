@@ -1,5 +1,7 @@
 package net.noiseinstitute.ld22.game
 {
+    import flash.filters.GlowFilter;
+
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Graphiclist;
     import net.flashpunk.graphics.Text;
@@ -12,12 +14,14 @@ package net.noiseinstitute.ld22.game
             this.y = y;
 
             var gameOverText1:Text = new Text("You failed to reach Delta Station");
+            gameOverText1.field.filters = [new GlowFilter(0xff00ff, 1, 10, 10, 1, 2)];
             gameOverText1.font = "Electrolize";
             gameOverText1.size = 32;
             gameOverText1.originX = gameOverText1.textWidth * 0.5;
             gameOverText1.originY = gameOverText1.textHeight;
 
             var gameOverText2:Text = new Text("The President is most disappointed");
+            gameOverText2.field.filters = [new GlowFilter(0xffff00, 1, 10, 10, 1, 2)];
             gameOverText2.font = "Electrolize";
             gameOverText2.size = 32;
             gameOverText2.originX = gameOverText2.textWidth * 0.5;
