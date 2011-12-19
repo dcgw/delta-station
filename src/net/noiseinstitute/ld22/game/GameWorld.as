@@ -67,9 +67,6 @@ package net.noiseinstitute.ld22.game {
             kitten = new Kitten(Math.random() * Main.WIDTH, Math.random() * Main.HEIGHT);
             add(kitten);
 
-            gameOver = new GameOver(Main.WIDTH/2, Main.HEIGHT/2);
-            add(gameOver);
-
             distanceCounter = new DistanceCounter(player, deltaStation);
             add(distanceCounter);
 
@@ -82,6 +79,9 @@ package net.noiseinstitute.ld22.game {
             add(tutorial1);
             add(tutorial2);
             add(tutorial3);
+
+            gameOver = new GameOver(Main.WIDTH/2, Main.HEIGHT/2);
+            add(gameOver);
         }
 
         public override function update():void {
@@ -94,8 +94,8 @@ package net.noiseinstitute.ld22.game {
                 player.asplode();
             }
 
-            if (player.asploded || fuelCounter.isDepleted()) {
-                gameOver.setTextVisible();
+            if (player.asploded) {
+                gameOver.visible = true;
 
                 if (Input.pressed(Main.KEY_CONTINUE)) {
                     Main.goToIntro();
