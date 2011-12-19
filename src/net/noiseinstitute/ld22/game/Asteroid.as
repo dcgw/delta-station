@@ -41,7 +41,7 @@ package net.noiseinstitute.ld22.game
             spinSpeed = MAX_SPIN_SPEED * Math.random();
 
             graphic = image;
-            type = "net.noiseinstitute.ld22.game.Asteroid";
+            type = "Asteroid";
 
             image.centerOrigin();
 

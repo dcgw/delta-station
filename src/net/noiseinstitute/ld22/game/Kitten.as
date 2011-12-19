@@ -41,7 +41,7 @@ package net.noiseinstitute.ld22.game
             spinSpeed = MAX_SPIN_SPEED * Math.random();
 
             image.centerOrigin();
-            type = "net.noiseinstitute.ld22.game.Kitten";
+            type = "Kitten";
 
             graphic = image;
 
