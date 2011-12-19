@@ -40,12 +40,16 @@ package net.noiseinstitute.ld22.game {
         private var playerImage:Image;
         private var asplosionImage:Image;
 
+        private var fuelCounter:FuelCounter;
+
         private var _asploded:Boolean = false;
         private var asploding:Boolean = false;
 
-        public function Player (x:Number, y:Number) {
+        public function Player (x:Number, y:Number, fuelCounter:FuelCounter) {
             this.x = x;
             this.y = y;
+
+            this.fuelCounter = fuelCounter;
 
             angularVelocity = Math.random() - 0.5;
 
@@ -82,30 +86,34 @@ package net.noiseinstitute.ld22.game {
             } else {
                 var buttonPressed:Boolean = false;
 
-                if (Input.check(Main.KEY_LEFT)) {
+                if (fuelCounter.fuel > 0 && Input.check(Main.KEY_LEFT)) {
                     angularVelocity += ANGULAR_THRUST;
-                    FuelCounter.fuel -= 0.3;
+                    fuelCounter.fuel -= 0.3;
                     if (thrustSoundChannel == null) {
                         thrustSoundChannel = thrustSound.play(0, int.MAX_VALUE);
                     }
                     buttonPressed = true;
                 }
-                if (Input.check(Main.KEY_RIGHT)) {
+                if (fuelCounter.fuel > 0 && Input.check(Main.KEY_RIGHT)) {
                     angularVelocity -= ANGULAR_THRUST;
-                    FuelCounter.fuel -= 0.3;
+                    fuelCounter.fuel -= 0.3;
                     if (thrustSoundChannel == null) {
                         thrustSoundChannel = thrustSound.play(0, int.MAX_VALUE);
                     }
                     buttonPressed = true;
                 }
-                if (Input.check(Main.KEY_THRUST)) {
+                if (fuelCounter.fuel > 0 && Input.check(Main.KEY_THRUST)) {
                     VectorMath.becomePolar(Static.point, angle, THRUST);
                     VectorMath.addTo(velocity, Static.point);
-                    FuelCounter.fuel -= 0.5;
+                    fuelCounter.fuel -= 0.5;
                     if (thrustSoundChannel == null) {
                         thrustSoundChannel = thrustSound.play(0, int.MAX_VALUE, thrustSoundTransform);
                     }
                     buttonPressed = true;
+                }
+
+                if (fuelCounter.fuel < 0) {
+                    fuelCounter.fuel = 0;
                 }
 
                 if (!buttonPressed && (thrustSoundChannel != null)) {

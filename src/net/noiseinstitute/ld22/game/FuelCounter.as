@@ -1,20 +1,18 @@
 package net.noiseinstitute.ld22.game
 {
     import net.flashpunk.Entity;
-    import net.flashpunk.Graphic;
-    import net.flashpunk.Mask;
     import net.flashpunk.graphics.Text;
 
     public class FuelCounter extends Entity
     {
         private var counterText:Text;
-        public static var fuel:Number = 0.0;
+        public var fuel:Number = 0.0;
 
-        public function FuelCounter(x:Number, y:Number, initialFuel:Number)
+        public function FuelCounter(x:Number, y:Number, fuel:Number)
         {
             this.x = x;
             this.y = y;
-            fuel = initialFuel;
+            this.fuel = fuel;
 
             counterText = new Text("Remaining Fuel: 0 Galactic Gallons");
             counterText.scrollX = 0;

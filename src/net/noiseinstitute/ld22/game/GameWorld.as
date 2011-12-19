@@ -45,10 +45,11 @@ package net.noiseinstitute.ld22.game {
             deltaStation = new DeltaStation(0, 0);
             add(deltaStation);
 
+            fuelCounter = new FuelCounter(0, 50, 1000);
 
             var playerAngleFromDeltaStation:Number = Math.random() * 360;
             var playerPosition:Point = VectorMath.polar(playerAngleFromDeltaStation, 10000);
-            player = new Player(playerPosition.x, playerPosition.y);
+            player = new Player(playerPosition.x, playerPosition.y, fuelCounter);
             add(player);
             for (var i:int = 0; i < NUMBER_OF_ASTEROIDS; i++) {
                 var x:Number = Math.random() * ASTEROID_WRAP_WIDTH;
@@ -70,7 +71,6 @@ package net.noiseinstitute.ld22.game {
             distanceCounter = new DistanceCounter(player, deltaStation);
             add(distanceCounter);
 
-            fuelCounter = new FuelCounter(0, 50, 1000.0);
             add(fuelCounter);
 
             teaCounter = new TeaCounter(0, 70);
