@@ -45,7 +45,7 @@ package net.noiseinstitute.ld22.game
             VectorMath.becomePolar(velocity, direction, speed);
 
             // The speed at which the asteroid spins around
-            spinSpeed = MAX_SPIN_SPEED * Math.random();
+            spinSpeed = MAX_SPIN_SPEED * Math.random() * 2 - MAX_SPIN_SPEED;
 
             graphic = image;
             type = "Asteroid";
