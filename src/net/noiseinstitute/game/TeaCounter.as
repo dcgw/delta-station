@@ -24,7 +24,7 @@ package net.noiseinstitute.game
 		public override function update():void {
 			var text:String = "Temperature of Tea: " + kelvin.toFixed(2) + " Space kelvin";
 			if (kelvin < 273.15) {
-				text.concat(" (frozen!)");
+				text = text + " (frozen!)";
 			}
 			counterText.text = text;
 			
