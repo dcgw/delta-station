@@ -104,19 +104,19 @@ package net.noiseinstitute.ld22.game {
                 }
             }
 
-            if (frame > 0.2 * Main.LOGIC_FPS && tutorialLevel < 1) {
+            if (frame > 3.2 * Main.LOGIC_FPS && tutorialLevel < 1) {
                 tutorial1.x = player.x - 32;
                 tutorial1.y = player.y + 96;
                 tutorial1.start();
                 tutorialLevel = 1;
             }
-            if (frame > 3 * Main.LOGIC_FPS && tutorialLevel < 2) {
+            if (frame > 6 * Main.LOGIC_FPS && tutorialLevel < 2) {
                 tutorial2.x = player.x;
                 tutorial2.y = player.y + 112;
                 tutorial2.start();
                 tutorialLevel = 2;
             }
-            if (frame > 5.8 * Main.LOGIC_FPS && tutorialLevel < 3) {
+            if (frame > 8.8 * Main.LOGIC_FPS && tutorialLevel < 3) {
                 tutorial3.x = player.x + 32;
                 tutorial3.y = player.y + 128;
                 tutorial3.start();
