@@ -8,6 +8,7 @@ package net.noiseinstitute.ld22.game {
     import net.flashpunk.graphics.Image;
     import net.flashpunk.utils.Input;
     import net.noiseinstitute.ld22.*;
+    import net.noiseinstitute.ld22.collisions.RotatablePixelmask;
 
     public class Player extends Entity {
         [Embed(source="Player.png")]
@@ -40,6 +41,8 @@ package net.noiseinstitute.ld22.game {
         private var playerImage:Image;
         private var asplosionImage:Image;
 
+        private var rotatablePixelMask:RotatablePixelmask;
+
         private var fuelCounter:FuelCounter;
 
         private var _asploded:Boolean = false;
@@ -66,7 +69,13 @@ package net.noiseinstitute.ld22.game {
 
             graphic = playerImage;
 
-            setHitbox(playerImage.width, playerImage.height, playerImage.originX, playerImage.originY);
+            rotatablePixelMask = new RotatablePixelmask(PlayerImage);
+            rotatablePixelMask.centerOrigin();
+
+            mask = rotatablePixelMask;
+
+            setHitbox(rotatablePixelMask.width, rotatablePixelMask.height,
+                    -rotatablePixelMask.bufferOffsetX, -rotatablePixelMask.bufferOffsetY);
         }
 
         public override function update():void {
@@ -126,6 +135,7 @@ package net.noiseinstitute.ld22.game {
                 y += velocity.y;
 
                 playerImage.angle = angle;
+                rotatablePixelMask.angle = angle;
             }
         }
 

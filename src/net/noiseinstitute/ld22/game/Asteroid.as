@@ -8,6 +8,7 @@ package net.noiseinstitute.ld22.game
     import net.noiseinstitute.ld22.Range;
     import net.noiseinstitute.ld22.Static;
     import net.noiseinstitute.ld22.VectorMath;
+    import net.noiseinstitute.ld22.collisions.RotatablePixelmask;
 
     public class Asteroid extends Entity {
 
@@ -24,6 +25,8 @@ package net.noiseinstitute.ld22.game
         private static const MAX_SPIN_SPEED:Number = 100 / Main.LOGIC_FPS;
 
         private var image:Image = new Image(AsteroidImage);
+
+        private var rotatablePixelMask:RotatablePixelmask;
 
         private var player:Player;
 
@@ -62,7 +65,13 @@ package net.noiseinstitute.ld22.game
             image.smooth = true;
             image.centerOrigin();
 
-            setHitbox(image.width, image.height, image.originX, image.originY);
+            rotatablePixelMask = new RotatablePixelmask(AsteroidImage);
+            rotatablePixelMask.centerOrigin();
+
+            mask = rotatablePixelMask;
+
+            setHitbox(rotatablePixelMask.width, rotatablePixelMask.height,
+                    -rotatablePixelMask.bufferOffsetX, -rotatablePixelMask.bufferOffsetY);
 
             updateDifficulty(-GameWorld.ASTEROID_WRAP_WIDTH*0.5, GameWorld.ASTEROID_WRAP_WIDTH*0.5,
                     -GameWorld.ASTEROID_WRAP_HEIGHT*0.5, GameWorld.ASTEROID_WRAP_HEIGHT*0.5);
@@ -73,6 +82,7 @@ package net.noiseinstitute.ld22.game
             y += velocity.y;
 
             image.angle += spinSpeed;
+            rotatablePixelMask.angle = image.angle;
 
             var playfieldLeft:Number = player.x - GameWorld.ASTEROID_WRAP_WIDTH*0.5;
             var playfieldRight:Number = player.x + GameWorld.ASTEROID_WRAP_WIDTH*0.5;

@@ -6,6 +6,7 @@ package net.noiseinstitute.ld22.game
     import net.flashpunk.graphics.Image;
     import net.noiseinstitute.ld22.Main;
     import net.noiseinstitute.ld22.VectorMath;
+    import net.noiseinstitute.ld22.collisions.RotatablePixelmask;
 
     public class Kitten extends Entity {
 
@@ -17,6 +18,8 @@ package net.noiseinstitute.ld22.game
         private static const MAX_SPIN_SPEED:Number = 300 / Main.LOGIC_FPS;
 
         private var image:Image = new Image(KittenImage);
+        private var rotatablePixelMask:RotatablePixelmask;
+
         private var velocity:Point = new Point();
         private var spinSpeed:Number = 0;
 
@@ -48,7 +51,13 @@ package net.noiseinstitute.ld22.game
 
             graphic = image;
 
-            setHitbox(image.width, image.height, image.originX, image.originY);
+            rotatablePixelMask = new RotatablePixelmask(KittenImage);
+            rotatablePixelMask.centerOrigin();
+
+            mask = rotatablePixelMask;
+
+            setHitbox(rotatablePixelMask.width, rotatablePixelMask.height,
+                    -rotatablePixelMask.bufferOffsetX, -rotatablePixelMask.bufferOffsetY);
         }
 
         public override function update():void {
@@ -56,6 +65,7 @@ package net.noiseinstitute.ld22.game
             y += velocity.y;
 
             image.angle += spinSpeed;
+            rotatablePixelMask.angle = image.angle;
         }
     }
 }
