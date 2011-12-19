@@ -1,13 +1,12 @@
 package net.noiseinstitute.ld22.game {
-    import net.noiseinstitute.ld22.*;
     import flash.geom.Point;
     import flash.media.Sound;
     import flash.media.SoundChannel;
-    
+
     import net.flashpunk.Entity;
-    import net.flashpunk.FP;
     import net.flashpunk.World;
     import net.flashpunk.utils.Input;
+    import net.noiseinstitute.ld22.*;
     import net.noiseinstitute.ld22.tutorial.Tutorial1;
     import net.noiseinstitute.ld22.tutorial.Tutorial2;
     import net.noiseinstitute.ld22.tutorial.Tutorial3;
@@ -73,7 +72,7 @@ package net.noiseinstitute.ld22.game {
             gameOver = new GameOver(Main.WIDTH/2, Main.HEIGHT/2);
             add(gameOver);
 
-            distanceCounter = new DistanceCounter(0, 30);
+            distanceCounter = new DistanceCounter(player, deltaStation);
             add(distanceCounter);
 
             fuelCounter = new FuelCounter(0, 50, 1000.0);
@@ -90,15 +89,10 @@ package net.noiseinstitute.ld22.game {
         public override function update():void {
             camera.x = player.x - Main.WIDTH/2;
             camera.y = player.y - Main.HEIGHT/2;
-            var playerPosition:Point = new Point(player.x, player.y);
-            var deltaPosition:Point = new Point(deltaStation.x, deltaStation.y);
-            var distanceFromDelta:Point = VectorMath.subtract(playerPosition, deltaPosition);
-            distanceCounter.distance = VectorMath.magnitude(distanceFromDelta);
 
             // Detect collisions
-            if (player.collide("Kitten", player.x, player.y) ||
-                player.collide("Asteroid", player.x, player.y)) {
-
+            if (player.collide("Kitten", player.x, player.y)
+                    || player.collide("Asteroid", player.x, player.y)) {
                 player.asplode();
             }
 
