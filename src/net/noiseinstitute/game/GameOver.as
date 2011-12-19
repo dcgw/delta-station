@@ -1,8 +1,6 @@
 package net.noiseinstitute.game
 {
     import net.flashpunk.Entity;
-    import net.flashpunk.Graphic;
-    import net.flashpunk.Mask;
     import net.flashpunk.graphics.Text;
 
     public class GameOver extends Entity
