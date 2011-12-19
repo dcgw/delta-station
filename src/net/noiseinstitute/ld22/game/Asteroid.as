@@ -4,6 +4,7 @@ package net.noiseinstitute.ld22.game
 
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Image;
+    import net.noiseinstitute.ld22.Main;
     import net.noiseinstitute.ld22.Range;
     import net.noiseinstitute.ld22.VectorMath;
 
@@ -13,8 +14,8 @@ package net.noiseinstitute.ld22.game
         private static var AsteroidImage:Class;
 
         private static const MAX_ANGLE:Number = 360;
-        private static const MAX_SPEED:Number = 1;
-        private static const MAX_SPIN_SPEED:Number = 5;
+        private static const MAX_SPEED:Number = 20 / Main.LOGIC_FPS;
+        private static const MAX_SPIN_SPEED:Number = 100 / Main.LOGIC_FPS;
 
         private var image:Image = new Image(AsteroidImage);
 
