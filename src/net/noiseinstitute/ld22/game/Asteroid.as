@@ -4,6 +4,7 @@ package net.noiseinstitute.ld22.game
 
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Image;
+    import net.noiseinstitute.ld22.Range;
     import net.noiseinstitute.ld22.VectorMath;
 
     public class Asteroid extends Entity {
@@ -16,7 +17,10 @@ package net.noiseinstitute.ld22.game
         private static const MAX_SPIN_SPEED:Number = 5;
 
         private var image:Image = new Image(AsteroidImage);
-        private var positionDelta:Point = new Point();
+
+        private var player:Player;
+
+        private var velocity:Point = new Point();
         private var spinSpeed:Number = 0;
 
         /**
@@ -24,9 +28,11 @@ package net.noiseinstitute.ld22.game
          *
          * The speed and direction are determined at random.
          */
-        public function Asteroid(x:Number, y:Number) {
+        public function Asteroid(x:Number, y:Number, player:Player) {
             this.x = x;
             this.y = y;
+
+            this.player = player;
 
             // The direction the asteroid moves
             var direction:Number = Math.random() * MAX_ANGLE;
@@ -35,7 +41,7 @@ package net.noiseinstitute.ld22.game
             var speed:Number = MAX_SPEED * Math.random();
 
             // The amount that the asteroid's current position should change by when it is updated.
-            VectorMath.becomePolar(positionDelta, direction, speed);
+            VectorMath.becomePolar(velocity, direction, speed);
 
             // The speed at which the asteroid spins around
             spinSpeed = MAX_SPIN_SPEED * Math.random();
@@ -49,12 +55,13 @@ package net.noiseinstitute.ld22.game
         }
 
         public override function update():void {
-            x += positionDelta.x;
-            y += positionDelta.y;
+            x += velocity.x;
+            y += velocity.y;
 
             image.angle += spinSpeed;
 
-            // TODO if asteroid position is outside GameWorld.HEIGHT or GameWorld.WIDTH, move asteroid
+            x = Range.wrap(x, player.x - GameWorld.ASTEROID_WRAP_WIDTH*0.5, player.x + GameWorld.ASTEROID_WRAP_WIDTH*0.5);
+            y = Range.wrap(y, player.y - GameWorld.ASTEROID_WRAP_WIDTH*0.5, player.y + GameWorld.ASTEROID_WRAP_WIDTH*0.5);
         }
     }
 }

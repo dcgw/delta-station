@@ -19,10 +19,8 @@ package net.noiseinstitute.ld22.game {
         private var musicChannel:SoundChannel;
 
         private static const NUMBER_OF_ASTEROIDS:int = 40;
-        private static const MIN_STARTING_DISTANCE_FROM_DELTA:int = 800;
-        private static const MAX_STARTING_DISTANCE_FROM_DELTA:int = 1200;
-        private static const PLAY_AREA_WIDTH:int = 1500;
-        private static const PLAY_AREA_HEIGHT:int = 1500;
+        public static const ASTEROID_WRAP_WIDTH:int = 1400;
+        public static const ASTEROID_WRAP_HEIGHT:int = 1400;
 
         private var player:Player;
         private var kitten:Kitten;
@@ -53,15 +51,15 @@ package net.noiseinstitute.ld22.game {
             player = new Player(playerPosition.x, playerPosition.y);
             add(player);
             for (var i:int = 0; i < NUMBER_OF_ASTEROIDS; i++) {
-                var x:Number = Math.random() * PLAY_AREA_WIDTH;
-                var y:Number = Math.random() * PLAY_AREA_HEIGHT;
+                var x:Number = Math.random() * ASTEROID_WRAP_WIDTH;
+                var y:Number = Math.random() * ASTEROID_WRAP_HEIGHT;
 
                 // Make sure the asteroid doesn't spawn next to the player, causing them to die immediately.
                 if (Math.abs(player.x - x) < 20) {
                     x += 20;
                 }
 
-                asteroids[i] = new Asteroid(x, y);
+                asteroids[i] = new Asteroid(x, y, player);
                 add(asteroids[i]);
             }
 
