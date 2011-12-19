@@ -27,7 +27,6 @@ package net.noiseinstitute.ld22.game
 
         private var player:Player;
 
-        private var startPosition:Point = new Point();
         private var velocity:Point = new Point();
         private var spinSpeed:Number = 0;
         private var difficulty:Number;
@@ -40,9 +39,6 @@ package net.noiseinstitute.ld22.game
         public function Asteroid(x:Number, y:Number, player:Player, difficulty:Number) {
             this.x = x;
             this.y = y;
-
-            startPosition.x = x;
-            startPosition.y = y;
 
             this.player = player;
 
@@ -99,8 +95,8 @@ package net.noiseinstitute.ld22.game
             var difficultyDistance:Number = ASTEROIDS_START_DISTANCE
                     + difficulty * (ASTEROIDS_END_DISTANCE - ASTEROIDS_START_DISTANCE);
 
-            Static.point.x = Range.wrap(startPosition.x, playfieldLeft, playfieldRight);
-            Static.point.y = Range.wrap(startPosition.y, playfieldTop, playfieldBottom);
+            Static.point.x = Range.wrap(x, playfieldLeft, playfieldRight);
+            Static.point.y = Range.wrap(y, playfieldTop, playfieldBottom);
 
             var startDistance:Number = VectorMath.magnitude(Static.point);
             collidable = visible = startDistance > difficultyDistance
