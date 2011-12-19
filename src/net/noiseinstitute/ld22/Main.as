@@ -1,9 +1,9 @@
-package net.noiseinstitute.game {
+package net.noiseinstitute.ld22 {
     import net.flashpunk.Engine;
     import net.flashpunk.FP;
     import net.flashpunk.utils.Input;
     import net.flashpunk.utils.Key;
-    import net.noiseinstitute.game.intro.IntroWorld;
+    import net.noiseinstitute.ld22.intro.IntroWorld;
 
     [SWF(width="640", height="480", backgroundColor="#000000", frameRate="60")]
     public class Main extends Engine {

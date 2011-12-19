@@ -1,4 +1,4 @@
-package net.noiseinstitute.game {
+package net.noiseinstitute.ld22 {
     import flash.geom.Point;
 
     /** Various statically allocated resources, to reduce garbage collection.
