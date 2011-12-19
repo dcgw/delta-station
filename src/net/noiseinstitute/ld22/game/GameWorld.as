@@ -22,6 +22,8 @@ package net.noiseinstitute.ld22.game {
         public static const ASTEROID_WRAP_WIDTH:int = 1400;
         public static const ASTEROID_WRAP_HEIGHT:int = 1400;
 
+        private static const KITTEN_DISTANCE_FROM_DELTA_STATION:Number = 800;
+
         private var player:Player;
         private var kitten:Kitten;
         private var asteroids:Array = new Array();
@@ -51,21 +53,19 @@ package net.noiseinstitute.ld22.game {
 
             player = new Player(0, 0, fuelCounter);
             add(player);
+
             for (var i:int = 0; i < NUMBER_OF_ASTEROIDS; i++) {
                 var x:Number = Math.random() * ASTEROID_WRAP_WIDTH;
                 var y:Number = Math.random() * ASTEROID_WRAP_HEIGHT;
-
-                // Make sure the asteroid doesn't spawn next to the player, causing them to die immediately.
-                if (Math.abs(player.x - x) < 20) {
-                    x += 20;
-                }
 
                 asteroids[i] = new Asteroid(x, y, player);
                 add(asteroids[i]);
             }
 
             // The important bit
-            kitten = new Kitten(Math.random() * Main.WIDTH, Math.random() * Main.HEIGHT);
+            var kittenAngleFromDeltaStation:Number = Math.random() * 360;
+            var kittenStartPosition:Point = VectorMath.polar(kittenAngleFromDeltaStation, KITTEN_DISTANCE_FROM_DELTA_STATION);
+            kitten = new Kitten(kittenStartPosition.x, kittenStartPosition.y);
             add(kitten);
 
             distanceCounter = new DistanceCounter(player, deltaStation);
