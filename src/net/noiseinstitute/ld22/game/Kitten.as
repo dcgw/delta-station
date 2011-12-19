@@ -4,6 +4,7 @@ package net.noiseinstitute.ld22.game
 
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Image;
+    import net.noiseinstitute.ld22.Main;
     import net.noiseinstitute.ld22.VectorMath;
 
     public class Kitten extends Entity {
@@ -12,11 +13,11 @@ package net.noiseinstitute.ld22.game
         private static var KittenImage:Class;
 
         private static const MAX_ANGLE:Number = 360;
-        private static const MAX_SPEED:Number = 1;
-        private static const MAX_SPIN_SPEED:Number = 5;
+        private static const MAX_SPEED:Number = 3 / Main.LOGIC_FPS;
+        private static const MAX_SPIN_SPEED:Number = 300 / Main.LOGIC_FPS;
 
         private var image:Image = new Image(KittenImage);
-        private var positionDelta:Point = new Point();
+        private var velocity:Point = new Point();
         private var spinSpeed:Number = 0;
 
         /**
@@ -35,10 +36,10 @@ package net.noiseinstitute.ld22.game
             var speed:Number = MAX_SPEED * Math.random();
 
             // The amount that the kitten's current position should change by when it is updated.
-            VectorMath.becomePolar(positionDelta, direction, speed);
+            VectorMath.becomePolar(velocity, direction, speed);
 
             // The speed at which the kitten spins around
-            spinSpeed = MAX_SPIN_SPEED * Math.random();
+            spinSpeed = MAX_SPIN_SPEED * Math.random() * 2 - MAX_SPIN_SPEED;
 
             image.smooth = true;
             image.centerOrigin();
@@ -51,8 +52,8 @@ package net.noiseinstitute.ld22.game
         }
 
         public override function update():void {
-            x += positionDelta.x;
-            y += positionDelta.y;
+            x += velocity.x;
+            y += velocity.y;
 
             image.angle += spinSpeed;
         }
