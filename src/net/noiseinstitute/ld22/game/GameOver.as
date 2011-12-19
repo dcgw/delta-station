@@ -1,4 +1,4 @@
-package net.noiseinstitute.ld22
+package net.noiseinstitute.ld22.game
 {
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Text;

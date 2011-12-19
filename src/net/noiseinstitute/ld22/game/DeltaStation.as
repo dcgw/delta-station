@@ -1,5 +1,6 @@
-package net.noiseinstitute.ld22
+package net.noiseinstitute.ld22.game
 {
+    import net.noiseinstitute.ld22.*;
     import net.flashpunk.Entity;
     import net.flashpunk.Graphic;
     import net.flashpunk.Mask;

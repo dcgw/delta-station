@@ -1,4 +1,5 @@
-package net.noiseinstitute.ld22 {
+package net.noiseinstitute.ld22.game {
+    import net.noiseinstitute.ld22.*;
     import flash.display.Bitmap;
     import flash.display.BitmapData;
     import flash.geom.ColorTransform;

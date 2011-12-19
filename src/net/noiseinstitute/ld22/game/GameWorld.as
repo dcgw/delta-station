@@ -1,4 +1,5 @@
-package net.noiseinstitute.ld22 {
+package net.noiseinstitute.ld22.game {
+    import net.noiseinstitute.ld22.*;
     import flash.geom.Point;
     import flash.media.Sound;
     import flash.media.SoundChannel;

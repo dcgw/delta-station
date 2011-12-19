@@ -1,7 +1,7 @@
 package net.noiseinstitute.ld22.intro {
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Image;
-    import net.noiseinstitute.ld22.Trig;
+    import net.noiseinstitute.ld22.game.Trig;
 
     public class PresidentOfSpace extends Entity {
         [Embed(source="PresidentOfSpace1.png")]
