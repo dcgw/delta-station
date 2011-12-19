@@ -42,14 +42,14 @@ package net.noiseinstitute.ld22.game {
         public function GameWorld() {
             add(new Entity(0, 0, new Starfield(), null));
 
-            deltaStation = new DeltaStation(0, 0);
+            var deltaStationAngle:Number = Math.random() * 360;
+            var deltaStationPosition:Point = VectorMath.polar(deltaStationAngle, 10000);
+            deltaStation = new DeltaStation(deltaStationPosition.x, deltaStationPosition.y);
             add(deltaStation);
 
             fuelCounter = new FuelCounter(0, 50, 1000);
 
-            var playerAngleFromDeltaStation:Number = Math.random() * 360;
-            var playerPosition:Point = VectorMath.polar(playerAngleFromDeltaStation, 10000);
-            player = new Player(playerPosition.x, playerPosition.y, fuelCounter);
+            player = new Player(0, 0, fuelCounter);
             add(player);
             for (var i:int = 0; i < NUMBER_OF_ASTEROIDS; i++) {
                 var x:Number = Math.random() * ASTEROID_WRAP_WIDTH;
