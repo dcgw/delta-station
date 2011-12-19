@@ -1,4 +1,4 @@
-package net.noiseinstitute.ld22.game {
+package net.noiseinstitute.ld22 {
     import net.flashpunk.FP;
 
     public class Trig {

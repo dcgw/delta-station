@@ -1,14 +1,13 @@
 package net.noiseinstitute.ld22.game {
-    import net.noiseinstitute.ld22.*;
     import flash.geom.Point;
     import flash.media.Sound;
     import flash.media.SoundChannel;
-
     import flash.media.SoundTransform;
 
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Image;
     import net.flashpunk.utils.Input;
+    import net.noiseinstitute.ld22.*;
 
     public class Player extends Entity {
         [Embed(source="Player.png")]

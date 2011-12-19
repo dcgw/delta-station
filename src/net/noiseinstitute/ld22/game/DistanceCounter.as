@@ -7,6 +7,9 @@ package net.noiseinstitute.ld22.game
     import net.flashpunk.graphics.Image;
     import net.flashpunk.graphics.Text;
     import net.noiseinstitute.ld22.Main;
+    import net.noiseinstitute.ld22.Range;
+    import net.noiseinstitute.ld22.Static;
+    import net.noiseinstitute.ld22.VectorMath;
 
     public class DistanceCounter extends Entity
     {

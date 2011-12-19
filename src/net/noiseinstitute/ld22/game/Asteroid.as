@@ -1,10 +1,10 @@
 package net.noiseinstitute.ld22.game
 {
-    import net.noiseinstitute.ld22.*;
     import flash.geom.Point;
 
     import net.flashpunk.Entity;
     import net.flashpunk.graphics.Image;
+    import net.noiseinstitute.ld22.VectorMath;
 
     public class Asteroid extends Entity {
 

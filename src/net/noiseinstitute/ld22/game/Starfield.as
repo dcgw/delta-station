@@ -1,5 +1,4 @@
 package net.noiseinstitute.ld22.game {
-    import net.noiseinstitute.ld22.*;
     import flash.display.Bitmap;
     import flash.display.BitmapData;
     import flash.geom.ColorTransform;
@@ -7,6 +6,7 @@ package net.noiseinstitute.ld22.game {
 
     import net.flashpunk.FP;
     import net.flashpunk.Graphic;
+    import net.noiseinstitute.ld22.*;
 
     public class Starfield extends Graphic {
         [Embed(source="Stars.png")]
