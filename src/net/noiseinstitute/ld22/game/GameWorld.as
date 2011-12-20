@@ -24,11 +24,14 @@ package net.noiseinstitute.ld22.game {
 
         private static const KITTEN_DISTANCE_FROM_DELTA_STATION:Number = 800;
 
+        private static const WIN_DISTANCE:Number = 200;
+
         private var player:Player;
         private var kitten:Kitten;
         private var asteroids:Array = new Array();
         private var deltaStation:DeltaStation;
         private var gameOver:GameOver;
+        private var win:Win;
         private var distanceCounter:DistanceCounter;
         private var fuelCounter:FuelCounter;
         private var teaCounter:TeaCounter;
@@ -85,6 +88,9 @@ package net.noiseinstitute.ld22.game {
 
             gameOver = new GameOver(Main.WIDTH/2, Main.HEIGHT/2);
             add(gameOver);
+
+            win = new Win(Main.WIDTH/2, Main.HEIGHT/2);
+            add(win);
         }
 
         public override function update():void {
@@ -97,11 +103,22 @@ package net.noiseinstitute.ld22.game {
                 player.asplode();
             }
 
+            Static.point.x = deltaStation.x - player.x;
+            Static.point.y = deltaStation.y - player.y;
+            if (VectorMath.magnitude(Static.point) < WIN_DISTANCE) {
+                player.stop();
+                if (!win.active) {
+                    win.start();
+                }
+            }
+
             if (player.asploded) {
                 if (!gameOver.active) {
                     gameOver.start();
                 }
+            }
 
+            if (player.asploded || win.active) {
                 if (Input.pressed(Main.KEY_CONTINUE)) {
                     Main.goToIntro();
                 }

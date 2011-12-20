@@ -170,6 +170,15 @@ package net.noiseinstitute.ld22.game {
             }
         }
 
+        public function stop():void {
+            if (thrustSoundChannel != null) {
+                thrustSoundChannel.stop();
+                thrustSoundChannel = null;
+            }
+
+            active = false;
+        }
+
         public function get asploded():Boolean {
             return _asploded;
         }
