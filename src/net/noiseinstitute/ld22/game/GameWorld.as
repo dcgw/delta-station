@@ -98,7 +98,9 @@ package net.noiseinstitute.ld22.game {
             }
 
             if (player.asploded) {
-                gameOver.visible = true;
+                if (!gameOver.active) {
+                    gameOver.start();
+                }
 
                 if (Input.pressed(Main.KEY_CONTINUE)) {
                     Main.goToIntro();
