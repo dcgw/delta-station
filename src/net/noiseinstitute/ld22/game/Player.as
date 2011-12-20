@@ -33,10 +33,10 @@ package net.noiseinstitute.ld22.game {
         private static const ANGULAR_THRUST:Number = 1/Main.LOGIC_FPS;
         private static const THRUST:Number = 1/Main.LOGIC_FPS;
 
-        private var angle:Number = 0;
+        private var _angle:Number = 0;
         private var angularVelocity:Number = 0;
 
-        private var velocity:Point = new Point;
+        private var _velocity:Point = new Point;
 
         private var playerImage:Image;
         private var asplosionImage:Image;
@@ -45,20 +45,33 @@ package net.noiseinstitute.ld22.game {
 
         private var fuelCounter:FuelCounter;
 
+        private var flameParticles:PlayerFlameParticles;
+
         private var _asploded:Boolean = false;
         private var asploding:Boolean = false;
 
-        public function Player (x:Number, y:Number, fuelCounter:FuelCounter) {
+        public function get angle():Number {
+            return _angle;
+        }
+
+        public function get velocity():Point {
+            return _velocity;
+        }
+
+        public function Player (x:Number, y:Number, fuelCounter:FuelCounter, flameParticles:PlayerFlameParticles) {
             this.x = x;
             this.y = y;
 
             this.fuelCounter = fuelCounter;
 
+            this.flameParticles = flameParticles;
+            flameParticles.player = this;
+
             angularVelocity = Math.random() - 0.5;
 
-            VectorMath.becomePolar(velocity, Math.random() * 360, Math.random());
+            VectorMath.becomePolar(_velocity, Math.random() * 360, Math.random());
 
-            angle = Math.random() * 360;
+            _angle = Math.random() * 360;
 
             playerImage = new Image(PlayerImage);
             playerImage.smooth = true;
@@ -95,12 +108,17 @@ package net.noiseinstitute.ld22.game {
             } else {
                 var buttonPressed:Boolean = false;
 
+                _angle += angularVelocity;
+                x += _velocity.x;
+                y += _velocity.y;
+
                 if (fuelCounter.fuel > 0 && Input.check(Main.KEY_LEFT)) {
                     angularVelocity += ANGULAR_THRUST;
                     fuelCounter.fuel -= 0.3;
                     if (thrustSoundChannel == null) {
                         thrustSoundChannel = thrustSound.play(0, int.MAX_VALUE);
                     }
+                    flameParticles.emitRight();
                     buttonPressed = true;
                 }
                 if (fuelCounter.fuel > 0 && Input.check(Main.KEY_RIGHT)) {
@@ -109,15 +127,17 @@ package net.noiseinstitute.ld22.game {
                     if (thrustSoundChannel == null) {
                         thrustSoundChannel = thrustSound.play(0, int.MAX_VALUE);
                     }
+                    flameParticles.emitLeft();
                     buttonPressed = true;
                 }
                 if (fuelCounter.fuel > 0 && Input.check(Main.KEY_THRUST)) {
-                    VectorMath.becomePolar(Static.point, angle, THRUST);
-                    VectorMath.addTo(velocity, Static.point);
+                    VectorMath.becomePolar(Static.point, _angle, THRUST);
+                    VectorMath.addTo(_velocity, Static.point);
                     fuelCounter.fuel -= 0.5;
                     if (thrustSoundChannel == null) {
                         thrustSoundChannel = thrustSound.play(0, int.MAX_VALUE, thrustSoundTransform);
                     }
+                    flameParticles.emitThrust();
                     buttonPressed = true;
                 }
 
@@ -130,12 +150,8 @@ package net.noiseinstitute.ld22.game {
                     thrustSoundChannel = null;
                 }
 
-                angle += angularVelocity;
-                x += velocity.x;
-                y += velocity.y;
-
-                playerImage.angle = angle;
-                rotatablePixelMask.angle = angle;
+                playerImage.angle = _angle;
+                rotatablePixelMask.angle = _angle;
             }
         }
 

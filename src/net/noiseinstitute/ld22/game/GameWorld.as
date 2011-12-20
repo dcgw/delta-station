@@ -51,8 +51,11 @@ package net.noiseinstitute.ld22.game {
 
             fuelCounter = new FuelCounter(0, 50, 1000);
 
-            player = new Player(0, 0, fuelCounter);
+            var playerFlameParticles:PlayerFlameParticles = new PlayerFlameParticles();
+            player = new Player(0, 0, fuelCounter, playerFlameParticles);
             add(player);
+
+            add(new Entity(0, 0, playerFlameParticles));
 
             for (var i:int = 0; i < NUMBER_OF_ASTEROIDS; i++) {
                 var x:Number = Math.random() * ASTEROID_WRAP_WIDTH;
