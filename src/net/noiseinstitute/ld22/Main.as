@@ -5,6 +5,7 @@ package net.noiseinstitute.ld22 {
     import net.flashpunk.utils.Key;
     import net.noiseinstitute.ld22.game.GameWorld;
     import net.noiseinstitute.ld22.intro.IntroWorld;
+    import net.noiseinstitute.ld22.title.TitleWorld;
 
     [SWF(width="640", height="480", backgroundColor="#000000", frameRate="60")]
     public class Main extends Engine {
@@ -28,10 +29,15 @@ package net.noiseinstitute.ld22 {
             FP.world = new GameWorld();
         }
 
+        public static function goToTitle():void {
+            FP.world = _main._titleWorld;
+        }
+
         public static function goToIntro():void {
             FP.world = _main._introWorld;
         }
 
+        private var _titleWorld:TitleWorld;
         private var _introWorld:IntroWorld;
 
         public function Main() {
@@ -39,6 +45,7 @@ package net.noiseinstitute.ld22 {
 
             _main = this;
 
+            _titleWorld = new TitleWorld();
             _introWorld = new IntroWorld();
 
             Input.define(KEY_LEFT, Key.LEFT);
@@ -50,7 +57,7 @@ package net.noiseinstitute.ld22 {
 
             FP.console.enable();
 
-            FP.world = _introWorld;
+            FP.world = _titleWorld;
         }
     }
 }

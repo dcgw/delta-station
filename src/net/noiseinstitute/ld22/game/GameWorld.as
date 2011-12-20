@@ -120,7 +120,7 @@ package net.noiseinstitute.ld22.game {
 
             if (player.asploded || win.active) {
                 if (Input.pressed(Main.KEY_CONTINUE)) {
-                    Main.goToIntro();
+                    Main.goToTitle();
                 }
             }
 
