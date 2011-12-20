@@ -55,7 +55,7 @@ package net.noiseinstitute.ld22 {
 
             FP.screen.color = 0x000000;
 
-            FP.console.enable();
+            //FP.console.enable();
 
             FP.world = _titleWorld;
         }
