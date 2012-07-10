@@ -1,3 +1,10 @@
+/.idea
 *.iml
 /out
-/.idea
+*~
+/build
+/.actionScriptProperties
+/.project
+/.settings
+/bin-debug
+/html-template
